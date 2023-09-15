@@ -102,6 +102,19 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   }
 }
 
+function stickyHeader(navWrapper) {
+  if (navWrapper) {
+    var sticky = navWrapper.offsetTop;
+    window.onscroll = function () {
+      if (window.pageYOffset > sticky) {
+        navWrapper.classList.add("sticky__header");
+      } else {
+        navWrapper.classList.remove("sticky__header");
+      }
+    };
+  }
+}
+
 /**
  * decorates the header, mainly the nav
  * @param {Element} block The header block element
@@ -164,6 +177,8 @@ export default async function decorate(block) {
     const navWrapper = document.createElement("div");
     navWrapper.className = "nav-wrapper";
     navWrapper.append(nav);
+
+    stickyHeader(navWrapper);
 
     /* Execute in order  */
     wrapImgsInLinks(nav);
