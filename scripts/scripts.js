@@ -11,6 +11,7 @@ import {
   waitForLCP,
   loadBlocks,
   loadCSS,
+  decorateLinkedPictures,
 } from "./lib-franklin.js";
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -66,6 +67,8 @@ function buildAutoBlocks(main) {
  */
 // eslint-disable-next-line import/prefer-default-export
 export function decorateMain(main) {
+  decorateLinkedPictures(main);
+
   // hopefully forward compatible button decoration
   decorateButtons(main);
   decorateIcons(main);
@@ -105,6 +108,7 @@ async function loadEager(doc) {
 async function loadLazy(doc) {
   const main = doc.querySelector("main");
   /** header first load before block loaded */
+  loadFonts();
   await loadHeader(doc.querySelector("header"));
   await loadBlocks(main);
 
@@ -115,7 +119,6 @@ async function loadLazy(doc) {
   loadFooter(doc.querySelector("footer"));
 
   loadCSS(`${window.hlx.codeBasePath}/styles/lazy-styles.css`);
-  loadFonts();
 
   sampleRUM("lazy");
   sampleRUM.observe(main.querySelectorAll("div[data-block-name]"));
