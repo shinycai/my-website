@@ -145,6 +145,9 @@ export default async function decorate(block) {
       navSections.querySelectorAll(":scope > ul > li").forEach((navSection) => {
         if (navSection.querySelector("ul"))
           navSection.classList.add("nav-drop");
+        navSection
+          .querySelector("a")
+          .setAttribute("href", "javascript:void(0)");
         navSection.querySelector("a").setAttribute("aria-expanded", "false");
         navSection.addEventListener("click", () => {
           const expanded = navSection.getAttribute("aria-expanded") === "true";

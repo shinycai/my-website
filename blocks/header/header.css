@@ -41,6 +41,7 @@ header nav p {
 
 header nav a:any-link {
   color: currentcolor;
+  display: inline-block;
 }
 
 /* hamburger */
@@ -286,8 +287,6 @@ header .nav-wrapper.sticky__header {
   header nav .nav-sections > ul > li {
     flex: 0 1 auto;
     position: relative;
-    font-weight: 500;
-    font-size: var(--body-font-size-s);
     padding-top: var(--menu-item-top-level-item-padding-top-property);
     padding-bottom: var(--menu-item-top-level-item-padding-bottom-property);
   }
@@ -296,12 +295,13 @@ header .nav-wrapper.sticky__header {
     position: absolute;
     z-index: 2;
     left: -1em;
-    top: 113px;
+    top: 112px;
     width: max-content;
     min-width: 232px;
     background-color: var(--secondary-color);
     white-space: initial;
     border-radius: 0 0 1rem 1rem;
+    padding-top: 0;
   }
   header nav .nav-sections .nav-drop {
     padding-right: 16px;
@@ -309,6 +309,14 @@ header .nav-wrapper.sticky__header {
   header .nav-wrapper.sticky__header .nav-sections > ul > li {
     padding-top: 1.47rem;
     padding-bottom: 1.47rem;
+  }
+  header
+    .nav-wrapper.sticky__header
+    .nav-sections
+    > ul
+    > li[aria-expanded="true"]
+    > ul {
+    top: 71px;
   }
 }
 
