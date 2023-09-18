@@ -20,6 +20,7 @@
   --overlay-background-color: #eee;
   --highlight-background-color: #ccc;
   --text-color: #33312c;
+  --border-color: #504d46;
 
   /* fonts */
   --body-font-family: "OverpassRegular";
@@ -61,7 +62,7 @@
   src: local("Arial");
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   :root {
     --heading-font-size-xxl: 60px;
     --heading-font-size-xl: 48px;
@@ -79,7 +80,8 @@ body {
   line-height: 1.6;
   color: var(--text-color);
   background-color: var(--background-color);
-  display: none;
+  vertical-align: baseline;
+  scroll-behavior: smooth;
 }
 
 body.appear {
@@ -277,13 +279,13 @@ main .section {
   padding: 64px 16px;
 }
 
-@media (min-width: 600px) {
+@media (min-width: 768px) {
   main .section {
     padding: 64px 32px;
   }
 }
 
-@media (min-width: 900px) {
+@media (min-width: 1024px) {
   .section > div {
     max-width: 1200px;
     margin: auto;

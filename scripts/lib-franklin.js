@@ -569,7 +569,7 @@ export function createOptimizedPicture(
   alt = "",
   eager = false,
   breakpoints = [
-    { media: "(min-width: 600px)", width: "2000" },
+    { media: "(min-width: 768px)", width: "2000" },
     { width: "750" },
   ]
 ) {

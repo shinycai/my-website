@@ -7,7 +7,7 @@ import {
 } from "../../scripts/lib-franklin.js";
 
 // media query match that indicates mobile/tablet width
-const isDesktop = window.matchMedia("(min-width: 900px)");
+const isDesktop = window.matchMedia("(min-width: 1024px)");
 
 function closeOnEscape(e) {
   if (e.code === "Escape") {
@@ -40,7 +40,7 @@ function openOnKeydown(e) {
 }
 
 function focusNavSection() {
-  document.activeElement.addEventListener("keydown", openOnKeydown);
+  document.activeElement.addEventListener("mouseenter", openOnKeydown);
 }
 
 /**
@@ -66,11 +66,11 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
       ? !forceExpanded
       : nav.getAttribute("aria-expanded") === "true";
   const button = nav.querySelector(".nav-hamburger button");
-  document.body.style.overflowY = expanded || isDesktop.matches ? "" : "hidden";
+  // document.body.style.overflowY = expanded || isDesktop.matches ? "" : "hidden";
   nav.setAttribute("aria-expanded", expanded ? "false" : "true");
   toggleAllNavSections(
     navSections,
-    expanded || isDesktop.matches ? "false" : "true"
+    !expanded || !isDesktop.matches ? "false" : "true"
   );
   button.setAttribute(
     "aria-label",
@@ -96,9 +96,9 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
   // enable menu collapse on escape keypress
   if (!expanded || isDesktop.matches) {
     // collapse menu on escape press
-    window.addEventListener("keydown", closeOnEscape);
+    window.addEventListener("mouseenter", closeOnEscape);
   } else {
-    window.removeEventListener("keydown", closeOnEscape);
+    window.removeEventListener("mouseenter", closeOnEscape);
   }
 }
 
@@ -145,16 +145,15 @@ export default async function decorate(block) {
       navSections.querySelectorAll(":scope > ul > li").forEach((navSection) => {
         if (navSection.querySelector("ul"))
           navSection.classList.add("nav-drop");
+        navSection.querySelector("a").setAttribute("aria-expanded", "false");
         navSection.addEventListener("click", () => {
-          if (isDesktop.matches) {
-            const expanded =
-              navSection.getAttribute("aria-expanded") === "true";
-            toggleAllNavSections(navSections);
-            navSection.setAttribute(
-              "aria-expanded",
-              expanded ? "false" : "true"
-            );
-          }
+          const expanded = navSection.getAttribute("aria-expanded") === "true";
+
+          toggleAllNavSections(navSections);
+          navSection.setAttribute("aria-expanded", expanded ? "false" : "true");
+          navSection
+            .querySelector("a")
+            .setAttribute("aria-expanded", expanded ? "false" : "true");
         });
       });
     }
