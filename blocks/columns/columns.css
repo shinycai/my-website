@@ -31,7 +31,12 @@
     order: unset;
   }
 }
-
+/* Section container */
+.columns-container[data-shadow="true"] .columns > div > div {
+  box-shadow: var(--column-box-shadow);
+  border-radius: var(--columns-border-radius);
+}
+/* Band*/
 .columns.band > div {
   min-height: 26.25rem;
   height: 100%;
@@ -70,6 +75,7 @@
   margin-top: -4.85rem;
 }
 .columns.band .columns-text-col-row .columns-text-col * {
+  color: white;
   margin: 0;
 }
 .columns.band .columns-text-col-row .columns-text-col p {

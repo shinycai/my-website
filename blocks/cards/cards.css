@@ -27,8 +27,13 @@
   object-fit: cover;
 }
 
+/* Card attribute */
+.cards-container[data-shadow="true"] .cards > ul > li {
+  box-shadow: var(--card-box-shadow);
+}
 /* Band */
 .cards.band {
+  display: none;
 }
 .cards.band ul {
   display: block;
@@ -42,9 +47,6 @@
   padding: 8px;
   box-sizing: border-box;
   border: 0;
-}
-.cards .cards-card-image {
-  display: none;
 }
 .cards.band .cards-card-body {
   color: white;
@@ -72,4 +74,22 @@
   text-align: right;
   align-items: flex-end;
   white-space: nowrap;
+}
+/**/
+.cards-container[data-name="alopecia-areata"] .cards .cards-card-image img {
+  border-radius: var(--card-image-border-radius);
+}
+.cards-container[data-name="alopecia-areata"] .cards > ul > li {
+  border-radius: var(--card-border-radius);
+}
+/* List */
+.cards.list {
+  text-align: center;
+}
+.cards.list > ul {
+  grid-template-columns: repeat(4, 1fr);
+}
+.cards.list .cards-card-image img {
+  margin: auto;
+  width: 34%;
 }

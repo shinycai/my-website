@@ -53,6 +53,17 @@
   /* menu */
   --menu-item-top-level-item-padding-top-property: 2.75rem;
   --menu-item-top-level-item-padding-bottom-property: 2.75rem;
+
+  /* card */
+  --card-box-shadow: 0px 5.12077px 17.9227px -3.84058px rgba(0, 0, 0, 0.12),
+    0px 11.5217px 56.3285px -2.56039px rgba(0, 0, 0, 0.14);
+
+  --card-border-radius: 6rem 1.125rem 1.125rem 1.125rem;
+  --card-image-border-radius: 6rem 1.125rem 0 0;
+
+  /* columns */
+  --column-box-shadow: 0px 12px 20px 8px rgba(0, 0, 0, 0.16);
+  --columns-border-radius: 1rem;
 }
 
 @font-face {
@@ -98,12 +109,14 @@ h3,
 h4,
 h5,
 h6 {
+  color: var(--primary-color);
   font-family: var(--heading-font-family);
   font-weight: 600;
   line-height: 1.25;
   margin-top: 1em;
   margin-bottom: 0.5em;
   scroll-margin: calc(var(--nav-height) + 1em);
+  text-align: center;
 }
 
 h1 {
@@ -275,22 +288,18 @@ main img {
   width: 100%;
 }
 
-/* main .section {
-  padding: 64px 16px;
-}
-
 @media (min-width: 768px) {
   main .section {
-    padding: 64px 32px;
+    max-width: 1200px;
+    padding: 0 32px;
+    margin: 0 auto;
   }
-} */
 
-/* @media (min-width: 1024px) {
-  .section > div {
-    max-width: 1280px;
-    margin: auto;
+  main .section[data-width="full-width"] {
+    max-width: 100%;
+    padding: 0;
   }
-} */
+}
 
 /* section metadata */
 main .section.highlight {
