@@ -853,3 +853,12 @@ export function decorateLinkedPictures(main) {
     }
   });
 }
+
+/**
+ * decorateBrTag
+ * @param {*} text
+ * @returns
+ */
+export function decorateBrTag(text) {
+  return text.replace("\\n", "<br>");
+}
