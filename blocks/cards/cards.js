@@ -1,4 +1,7 @@
-import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
+import {
+  createOptimizedPicture,
+  decorateBrTag,
+} from "../../scripts/lib-franklin.js";
 
 function bandCard(li, img) {
   li.setAttribute("style", `background-image: url(${img.src});`);
@@ -25,9 +28,18 @@ export default function decorate(block) {
         div.className = "cards-card-image";
       else div.className = "cards-card-body";
 
+      if (div.className.indexOf("cards-card-body") > -1) {
+        [...div.children].forEach((textCol) => {
+          textCol.innerHTML = decorateBrTag(textCol.innerHTML);
+        });
+      }
+
       if (block.className.indexOf("band") > -1) {
         const _img = li.querySelector("img");
         bandCard(li, _img);
+      }
+
+      if (block.className.indexOf("cta-list") > -1) {
       }
     });
 

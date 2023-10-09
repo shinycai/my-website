@@ -224,7 +224,7 @@ header nav .nav-tools {
 /* sticky */
 header .nav-wrapper.sticky__header {
   position: fixed;
-  z-index: 2;
+  z-index: 5;
   width: 100%;
   top: 0;
   -webkit-box-shadow: none;

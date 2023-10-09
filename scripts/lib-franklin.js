@@ -799,7 +799,9 @@ function init() {
   setup();
   sampleRUM("top");
 
-  window.addEventListener("load", () => sampleRUM("load"));
+  window.addEventListener("load", () => {
+    sampleRUM("load");
+  });
 
   window.addEventListener("unhandledrejection", (event) => {
     sampleRUM("error", {
@@ -861,4 +863,27 @@ export function decorateLinkedPictures(main) {
  */
 export function decorateBrTag(text) {
   return text.replace("\\n", "<br>");
+}
+
+/**
+ * Using a nodeIterator to extract all textNodes of a given DOM element.
+ * @param {string<selector>|Object<DOM>} tag - Either a CSS selector
+ *        or a DOM Object of an element to extract text from. If nothing or
+ *        something invalid is passed, @default is document.body.
+ * @returns {array} - An array of strings
+ */
+function getText(tag = document.body) {
+  const textNodes = [];
+  const walker = document.createTreeWalker(
+    document.body,
+    NodeFilter.SHOW_TEXT,
+    null,
+    false
+  );
+  let n;
+  while ((n = walker.nextNode())) textNodes.push(n);
+  const newStrings = textNodes
+    .map((textNode) => textNode.textContent)
+    .filter((text) => text.trim() !== "");
+  console.log(newStrings);
 }
