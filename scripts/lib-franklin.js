@@ -718,6 +718,15 @@ export function decorateButtons(element) {
           a.className = "button secondary";
           twoup.classList.add("button-container");
         }
+
+        // button category
+        const section = a.closest(".section[data-button=true]");
+        if (section) {
+          let buttonSize = section.getAttribute("data-button-size") || "normal";
+          let buttonType = section.getAttribute("data-button-type") || "link";
+          a.classList.add(buttonSize);
+          a.classList.add(buttonType);
+        }
       }
     }
   });

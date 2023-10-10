@@ -94,6 +94,8 @@
 }
 .grid-layout.cards {
   margin: 2.5rem 1.5rem;
+  padding: 8rem 0rem 8rem;
+  margin: 0rem 2rem;
 }
 .cards.grid-layout > ul {
   display: grid;
@@ -131,4 +133,7 @@
   margin: 0;
   padding: 3rem 3rem 4rem 3rem;
   border-radius: 1rem;
+}
+.cards.cta-list .button-container {
+  padding: 40px 24px 0 24px;
 }

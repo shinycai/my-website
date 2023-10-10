@@ -68,6 +68,11 @@
   /* button */
   --button-primary-background: linear-gradient(
     90deg,
+    #00538f 0%,
+    #58aae6 85.33%
+  );
+  --button-secondary-background: linear-gradient(
+    90deg,
     #ece811 0%,
     #eaebdd 85.33%
   );
@@ -226,7 +231,7 @@ button {
   display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
-  border: 2px solid transparent;
+  /* border: 2px solid transparent; */
   padding: 5px 30px;
   text-align: center;
   font-style: normal;
@@ -257,16 +262,23 @@ button:disabled:hover {
 
 a.button.primary,
 button.primary {
-  padding: 1.5rem 2rem 1.5rem 2.5rem;
   background: var(--button-primary-background);
   border-radius: var(--button-border-radius--primary);
 }
 
 a.button.secondary,
 button.secondary {
-  background-color: unset;
-  border: 2px solid currentcolor;
+  background: var(--button-secondary-background);
+  /* border: 2px solid currentcolor; */
   color: var(--text-color);
+}
+a.button.large {
+  font-size: 2rem;
+  line-height: 40px;
+  padding: 1.5rem 2rem 1.5rem 2.5rem;
+  width: 100%;
+  letter-spacing: 0.25px;
+  border-radius: 50px;
 }
 
 main input {
@@ -327,7 +339,7 @@ main .section {
 
 @media (min-width: 768px) {
   main .section {
-    max-width: 1200px;
+    max-width: 75rem;
     padding: 0 32px;
     margin: 0 auto;
   }

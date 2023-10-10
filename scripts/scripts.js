@@ -70,12 +70,11 @@ export function decorateMain(main) {
   decorateLinkedPictures(main);
 
   // hopefully forward compatible button decoration
+  decorateSections(main);
   decorateButtons(main);
   decorateIcons(main);
   buildAutoBlocks(main);
-  decorateSections(main);
   decorateBlocks(main);
-
   decorateSpecialSymbol(main);
 }
 
