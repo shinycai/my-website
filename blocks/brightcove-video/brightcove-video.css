@@ -1,0 +1,40 @@
+.video-container {
+  box-shadow: 0px 4.75px 16.625px -3.5625px rgba(24, 39, 75, 0.34),
+    0px 10.6875px 14.25px -2.375px rgba(24, 39, 75, 0.24);
+  border-radius: 14.25px;
+}
+
+@media (min-width: 768px) {
+  .video-container {
+    margin: 0 2rem;
+  }
+}
+
+.section.brightcove-video-container {
+  background-color: white;
+}
+
+@media (min-width: 768px) {
+  .section.brightcove-video-container {
+    padding: 0;
+  }
+}
+
+.video-js .vjs-big-play-button {
+  width: 86.67px;
+  height: 86.67px;
+}
+
+.video-js .vjs-big-play-button .vjs-icon-placeholder:before {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.video-js.vjs-thumbnails {
+  border-radius: 14.25px;
+}
+
+.video-js:hover .vjs-big-play-button {
+  background-color: var(--primary-color);
+}
