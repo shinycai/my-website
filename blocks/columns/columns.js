@@ -1,4 +1,3 @@
-import { decorateBrTag } from "../../scripts/lib-franklin.js";
 /**
  * If there is only one sentence in a column, the p tag will not be generated, need to process it manually.
  * @param {*} innerEle
@@ -35,7 +34,6 @@ export default function decorate(block) {
           [...textWrapperRow.children].forEach((textCol) => {
             textCol.classList.add("columns-text-col");
             decorateColumnSentence(textCol);
-            textCol.innerHTML = decorateBrTag(textCol.innerHTML);
           });
         }
       }

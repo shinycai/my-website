@@ -1,3 +1,6 @@
+.cards [tag="h\d"] {
+  text-align: left;
+}
 .cards > ul {
   list-style: none;
   margin: 0;
@@ -89,7 +92,7 @@
 .grid-layout li {
   height: 100%;
 }
-.cards.grid-layout {
+.grid-layout.cards {
   margin: 2.5rem 1.5rem;
 }
 .cards.grid-layout > ul {

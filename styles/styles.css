@@ -149,7 +149,10 @@ h6 {
   font-size: var(--heading-font-size-xs);
 }
 
-p,
+p {
+  margin: 0;
+}
+
 dl,
 ol,
 ul,
@@ -184,6 +187,18 @@ pre {
 
 strong {
   font-family: "OverpassBold";
+}
+
+small {
+  font-size: inherit;
+}
+
+.footnote {
+  font-size: 0.875rem;
+}
+
+.default-content-wrapper .footnote {
+  font-size: 1rem;
 }
 
 main pre {

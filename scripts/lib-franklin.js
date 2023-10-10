@@ -856,34 +856,26 @@ export function decorateLinkedPictures(main) {
   });
 }
 
-/**
- * decorateBrTag
- * @param {*} text
- * @returns
- */
-export function decorateBrTag(text) {
-  return text.replace("\\n", "<br>");
-}
+export function decorateSpecialSymbol(main) {
+  main.querySelectorAll("*").forEach((node) => {
+    // <small> tag
+    if (node.tagName === "P" && node.textContent !== "") {
+      if (node.textContent.match(/\[s\]$/)) {
+        node.classList.add("footnote");
+        node.innerHTML = `<small>${node.textContent.replace(
+          /\[s\]$/,
+          ""
+        )}</small>`;
+      }
+    }
 
-/**
- * Using a nodeIterator to extract all textNodes of a given DOM element.
- * @param {string<selector>|Object<DOM>} tag - Either a CSS selector
- *        or a DOM Object of an element to extract text from. If nothing or
- *        something invalid is passed, @default is document.body.
- * @returns {array} - An array of strings
- */
-function getText(tag = document.body) {
-  const textNodes = [];
-  const walker = document.createTreeWalker(
-    document.body,
-    NodeFilter.SHOW_TEXT,
-    null,
-    false
-  );
-  let n;
-  while ((n = walker.nextNode())) textNodes.push(n);
-  const newStrings = textNodes
-    .map((textNode) => textNode.textContent)
-    .filter((text) => text.trim() !== "");
-  console.log(newStrings);
+    // <br> tag
+    if (
+      (node.tagName === "P" || node.tagName.match(/^H/)) &&
+      node.textContent !== "" &&
+      node.textContent.match(/\\n/gi)
+    ) {
+      node.innerHTML = node.textContent.replace("\\n", "<br>");
+    }
+  });
 }

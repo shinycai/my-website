@@ -12,10 +12,10 @@ import {
   loadBlocks,
   loadCSS,
   decorateLinkedPictures,
+  decorateSpecialSymbol,
 } from "./lib-franklin.js";
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
-
 /**
  * Builds hero block and prepends to main in a new section.
  * @param {Element} main The container element
@@ -75,6 +75,8 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateSections(main);
   decorateBlocks(main);
+
+  decorateSpecialSymbol(main);
 }
 
 /**
