@@ -80,6 +80,10 @@
 
   /* space */
   --spacing-multiplier: 4px;
+
+  /* background image */
+  --background-style-image-4: url("../images/background/background-style-4.png");
+  --background-style-image-7: url("../images/background/backgruond-style-7.png");
 }
 
 @font-face {
@@ -228,12 +232,11 @@ a:hover {
 a.button:any-link,
 button {
   font-family: var(--body-font-family);
-  display: inline-block;
   box-sizing: border-box;
   text-decoration: none;
   /* border: 2px solid transparent; */
   padding: 5px 30px;
-  text-align: center;
+  text-align: left;
   font-style: normal;
   font-weight: 600;
   cursor: pointer;
@@ -244,6 +247,17 @@ button {
   overflow: hidden;
   text-overflow: ellipsis;
   border-radius: 30px;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+  flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
 }
 
 a.button:hover,
@@ -279,6 +293,15 @@ a.button.large {
   width: 100%;
   letter-spacing: 0.25px;
   border-radius: 50px;
+}
+
+a.button.large .icon {
+  width: 36px;
+  height: 36px;
+  margin-left: 4px;
+  transform: scale(1.5);
+  -webkit-transform: scale(1.5);
+  -ms-transform: scale(1.5);
 }
 
 main input {
@@ -353,4 +376,20 @@ main .section {
 /* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
+}
+main .section[data-background-style="true"] {
+  background-repeat: no-repeat;
+}
+main .section[data-background-image="4"] {
+  background-image: var(--background-style-image-4);
+}
+main .section[data-background-position="image-right"] {
+  background-size: cover;
+  background-position: center -6rem;
+}
+main .section[data-background-position="image-right"] .columns-text-col {
+  padding: 4.625rem 0px 0rem 5.175rem;
+}
+main .section[data-background-position="image-right"] .columns-text-col > * {
+  padding: 0 24px;
 }

@@ -1,14 +1,83 @@
 footer {
   padding: 2rem;
-  background-color: var(--overlay-background-color);
+  background-color: var(--primary-color);
   font-size: var(--body-font-size-s);
 }
 
+footer,
+footer a:any-link {
+  color: white;
+}
+
+footer a:any-link {
+  text-decoration: underline;
+}
+
 footer .footer {
-  max-width: 1200px;
+  width: 100%;
+  max-width: 1204px;
   margin: auto;
+  text-align: left;
 }
 
 footer .footer p {
   margin: 0;
+  font-size: 20px;
+}
+
+footer .footer ul,
+footer .footer li {
+  padding: 0;
+  margin: 0;
+  list-style: none;
+}
+
+footer .footer li {
+  padding-left: 12px;
+  margin-bottom: 24px;
+}
+
+footer .footer .columns > div {
+  display: flex;
+}
+
+footer .footer .columns {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  padding: 0 32px;
+}
+
+footer .footer .columns > div {
+  /* flex: 1; */
+  flex-direction: column;
+  align-items: flex-start;
+  padding-right: 32px;
+  border-right: 1px solid white;
+  gap: 0;
+}
+
+footer .footer .columns > div:nth-of-type(2) {
+  padding: 0 calc(var(--spacing-multiplier) * 21);
+}
+
+footer .footer .columns > div:last-of-type {
+  padding-left: 1.33rem;
+  padding-right: 0;
+  border-right: 0;
+}
+
+footer .footer .columns > div > div {
+  flex: initial;
+}
+
+footer .footer .columns h3 {
+  font-size: 2rem;
+  color: white;
+  margin-bottom: calc(var(--spacing-multiplier) * 6);
+}
+footer .footer .icon-footer-pfizer-logo {
+  display: inline-block;
+  width: 88px;
+  height: 36px;
+  margin-top: 10px;
 }
