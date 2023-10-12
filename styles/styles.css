@@ -388,8 +388,19 @@ main .section[data-background-position="image-right"] {
   background-position: center -6rem;
 }
 main .section[data-background-position="image-right"] .columns-text-col {
-  padding: 4.625rem 0px 0rem 5.175rem;
+  padding: 74px 0px 24px;
+}
+main .section[data-background-position="image-right"] .columns-text-col h2 {
+  margin-top: 0;
+  padding-top: 24px;
 }
 main .section[data-background-position="image-right"] .columns-text-col > * {
-  padding: 0 24px;
+  padding-right: 24px;
+  padding-left: 0;
+}
+main .section[data-background-position="image-right"] .columns-text-col p {
+  text-align: center;
+}
+main .section[data-background-position="image-right"] .button-container {
+  padding: 32px 24px 0;
 }

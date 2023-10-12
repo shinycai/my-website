@@ -7,15 +7,6 @@ function bandCard(li, img) {
 export default function decorate(block) {
   /* change to ul, li */
   const ul = document.createElement("ul");
-  // if (!block.className.indexOf("band") > -1) {
-  ul.querySelectorAll("img").forEach((img) =>
-    img
-      .closest("picture")
-      .replaceWith(
-        createOptimizedPicture(img.src, img.alt, false, [{ width: "750" }])
-      )
-  );
-  // }
 
   [...block.children].forEach((row) => {
     const li = document.createElement("li");

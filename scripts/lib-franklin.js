@@ -569,15 +569,14 @@ export function createOptimizedPicture(
   alt = "",
   eager = false,
   breakpoints = [
-    { media: "(min-width: 768px)", width: "2000" },
-    { width: "750" },
+    { type: "pc", media: "(min-width: 768px)", width: "2000" },
+    { type: "sp", media: "(max-width:767px)", width: "750" },
   ]
 ) {
   const url = new URL(src, window.location.href);
   const picture = document.createElement("picture");
   const { pathname } = url;
   const ext = pathname.substring(pathname.lastIndexOf(".") + 1);
-
   // webp
   breakpoints.forEach((br) => {
     const source = document.createElement("source");
@@ -585,7 +584,7 @@ export function createOptimizedPicture(
     source.setAttribute("type", "image/webp");
     source.setAttribute(
       "srcset",
-      `${pathname}?width=${br.width}&format=webply&optimize=medium`
+      `${pathname}?width=${br.width}&format=webp&optimize=medium`
     );
     picture.appendChild(source);
   });
@@ -611,8 +610,27 @@ export function createOptimizedPicture(
       );
     }
   });
-
   return picture;
+}
+
+/**
+ *
+ * @param {*} src
+ * @param {*} alt
+ * @param {*} eager
+ * @param {*} breakpoints
+ * @returns
+ */
+export function createResponsivePictures(main) {
+  const pictures = main.querySelectorAll("picture");
+
+  pictures.forEach((picture) => {
+    if (picture.parentElement.nextElementSibling.childNodes.length > -1) {
+      const section = picture.closest(
+        ".section[data-responsive-pictures=true]"
+      );
+    }
+  });
 }
 
 /**
@@ -878,13 +896,13 @@ export function decorateSpecialSymbol(main) {
       }
     }
 
-    // <br> tag
-    if (
+    // <br> tag shift+enter in word
+    /*if (
       (node.tagName === "P" || node.tagName.match(/^H/)) &&
       node.textContent !== "" &&
       node.textContent.match(/\\n/gi)
     ) {
       node.innerHTML = node.textContent.replace("\\n", "<br>");
-    }
+    }*/
   });
 }

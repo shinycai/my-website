@@ -13,6 +13,8 @@ import {
   loadCSS,
   decorateLinkedPictures,
   decorateSpecialSymbol,
+  createOptimizedPicture,
+  createResponsivePictures,
 } from "./lib-franklin.js";
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -76,6 +78,13 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateBlocks(main);
   decorateSpecialSymbol(main);
+  main.querySelectorAll("img").forEach((img) => {
+    img
+      .closest("picture")
+      .replaceWith(createOptimizedPicture(img.src, img.alt, false));
+  });
+
+  createResponsivePictures(main);
 }
 
 /**
