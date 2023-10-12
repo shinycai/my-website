@@ -13,6 +13,7 @@ import {
   loadCSS,
   decorateLinkedPictures,
   decorateSpecialSymbol,
+  createOptimizedPicture,
 } from "./lib-franklin.js";
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -41,8 +42,9 @@ function buildHeroBlock(main) {
 async function loadFonts() {
   await loadCSS(`${window.hlx.codeBasePath}/styles/fonts.css`);
   try {
-    if (!window.location.hostname.includes("localhost"))
+    if (!window.location.hostname.includes("localhost")) {
       sessionStorage.setItem("fonts-loaded", "true");
+    }
   } catch (e) {
     // do nothing
   }
@@ -76,6 +78,11 @@ export function decorateMain(main) {
   buildAutoBlocks(main);
   decorateBlocks(main);
   decorateSpecialSymbol(main);
+  main.querySelectorAll("img").forEach((img) => {
+    img
+      .closest("picture")
+      .replaceWith(createOptimizedPicture(img.src, img.alt, false));
+  });
 }
 
 /**

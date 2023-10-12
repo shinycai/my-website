@@ -23,18 +23,31 @@ export default function decorate(block) {
         if (picWrapper && picWrapper.children.length === 1) {
           // picture is only content in column
           picWrapper.classList.add("columns-img-col");
-          picWrapper.parentElement.classList.add("columns-img-col-row");
         }
+
+        /* eslint-disable indent */
+        const textWrapperRow =
+          block.className.indexOf("band") > -1
+            ? picWrapper.parentElement.nextElementSibling ||
+              picWrapper.parentElement.previousElementSibling
+            : block.className.indexOf("text-image") > -1
+            ? picWrapper.nextElementSibling || picWrapper.previousElementSibling
+            : picWrapper.parentElement.nextElementSibling;
+
         /** columns band */
         if (block.className.indexOf("band") > -1) {
-          const textWrapperRow = picWrapper.parentElement.nextElementSibling;
-
-          textWrapperRow.classList.add("columns-text-col-row");
-
+          picWrapper.parentElement.classList.add("columns-img-container");
           [...textWrapperRow.children].forEach((textCol) => {
             textCol.classList.add("columns-text-col");
             decorateColumnSentence(textCol);
           });
+          textWrapperRow.classList.add("columns-content-container");
+        }
+
+        /** columns text-image */
+        if (block.className.indexOf("text-image") > -1) {
+          picWrapper.parentElement.classList.add("container-inner");
+          textWrapperRow.classList.add("columns-text-col");
         }
       }
     });
