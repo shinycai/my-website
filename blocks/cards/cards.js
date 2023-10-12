@@ -1,5 +1,3 @@
-import { createOptimizedPicture } from "../../scripts/lib-franklin.js";
-
 function bandCard(li, img) {
   li.setAttribute("style", `background-image: url(${img.src});`);
 }
@@ -12,9 +10,11 @@ export default function decorate(block) {
     const li = document.createElement("li");
     while (row.firstElementChild) li.append(row.firstElementChild);
     [...li.children].forEach((div) => {
-      if (div.children.length === 1 && div.querySelector("picture"))
+      if (div.children.length === 1 && div.querySelector("picture")) {
         div.className = "cards-card-image";
-      else div.className = "cards-card-body";
+      } else {
+        div.className = "cards-card-body";
+      }
 
       if (block.className.indexOf("band") > -1) {
         const _img = li.querySelector("img");
@@ -22,6 +22,7 @@ export default function decorate(block) {
       }
 
       if (block.className.indexOf("cta-list") > -1) {
+        // some codes
       }
     });
 

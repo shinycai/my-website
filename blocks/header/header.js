@@ -104,7 +104,7 @@ function toggleMenu(nav, navSections, forceExpanded = null) {
 
 function stickyHeader(navWrapper) {
   if (navWrapper) {
-    var sticky = navWrapper.offsetTop;
+    const sticky = navWrapper.offsetTop;
     window.onscroll = function () {
       if (window.pageYOffset > sticky) {
         navWrapper.classList.add("sticky__header");
@@ -143,11 +143,10 @@ export default async function decorate(block) {
     const navSections = nav.querySelector(".nav-sections");
     if (navSections) {
       navSections.querySelectorAll(":scope > ul > li").forEach((navSection) => {
-        if (navSection.querySelector("ul"))
+        if (navSection.querySelector("ul")) {
           navSection.classList.add("nav-drop");
-        navSection
-          .querySelector("a")
-          .setAttribute("href", "javascript:void(0)");
+        }
+        navSection.querySelector("a").setAttribute("href", "#");
         navSection.querySelector("a").setAttribute("aria-expanded", "false");
         navSection.addEventListener("click", () => {
           const expanded = navSection.getAttribute("aria-expanded") === "true";
@@ -172,9 +171,9 @@ export default async function decorate(block) {
     nav.setAttribute("aria-expanded", "false");
     // prevent mobile nav behavior on window resize
     toggleMenu(nav, navSections, isDesktop.matches);
-    isDesktop.addEventListener("change", () =>
-      toggleMenu(nav, navSections, isDesktop.matches)
-    );
+    isDesktop.addEventListener("change", () => {
+      toggleMenu(nav, navSections, isDesktop.matches);
+    });
 
     const navWrapper = document.createElement("div");
     navWrapper.className = "nav-wrapper";

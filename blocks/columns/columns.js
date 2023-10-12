@@ -25,6 +25,7 @@ export default function decorate(block) {
           picWrapper.classList.add("columns-img-col");
         }
 
+        /* eslint-disable indent */
         const textWrapperRow =
           block.className.indexOf("band") > -1
             ? picWrapper.parentElement.nextElementSibling ||

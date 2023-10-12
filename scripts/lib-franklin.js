@@ -45,7 +45,9 @@ export function sampleRUM(checkpoint, data = {}) {
       const usp = new URLSearchParams(window.location.search);
       const weight = usp.get("rum") === "on" ? 1 : 100; // with parameter, weight is 1. Defaults to 100.
       // eslint-disable-next-line no-bitwise
+      // eslint-disable-next-line implicit-arrow-linebreak
       const hashCode = (s) =>
+        // eslint-disable-next-line implicit-arrow-linebreak
         s.split("").reduce((a, b) => ((a << 5) - a + b.charCodeAt(0)) | 0, 0);
       const id = `${hashCode(
         window.location.href
@@ -171,6 +173,7 @@ export function getMetadata(name) {
  * @param {string} name The unsanitized string
  * @returns {string} The class name
  */
+/* eslint-disable indent */
 export function toClassName(name) {
   return typeof name === "string"
     ? name
@@ -180,7 +183,7 @@ export function toClassName(name) {
         .replace(/^-|-$/g, "")
     : "";
 }
-
+/* eslint-enable */
 /**
  * Sanitizes a string for use as a js property name.
  * @param {string} name The unsanitized string
@@ -614,26 +617,6 @@ export function createOptimizedPicture(
 }
 
 /**
- *
- * @param {*} src
- * @param {*} alt
- * @param {*} eager
- * @param {*} breakpoints
- * @returns
- */
-export function createResponsivePictures(main) {
-  const pictures = main.querySelectorAll("picture");
-
-  pictures.forEach((picture) => {
-    if (picture.parentElement.nextElementSibling.childNodes.length > -1) {
-      const section = picture.closest(
-        ".section[data-responsive-pictures=true]"
-      );
-    }
-  });
-}
-
-/**
  * Normalizes all headings within a container element.
  * @param {Element} el The container element
  * @param {string} allowedHeadings The list of allowed headings (h1 ... h6)
@@ -674,8 +657,9 @@ export function makeLinksRelative(main) {
       try {
         const url = new URL(a.href);
         const relative = hosts.some((host) => url.hostname.includes(host));
-        if (relative)
+        if (relative) {
           a.href = `${url.pathname.split(".")[0]}${url.search}${url.hash}`;
+        }
       } catch (e) {
         // something went wrong
         // eslint-disable-next-line no-console
@@ -740,8 +724,9 @@ export function decorateButtons(element) {
         // button category
         const section = a.closest(".section[data-button=true]");
         if (section) {
-          let buttonSize = section.getAttribute("data-button-size") || "normal";
-          let buttonType = section.getAttribute("data-button-type") || "link";
+          const buttonSize =
+            section.getAttribute("data-button-size") || "normal";
+          const buttonType = section.getAttribute("data-button-type") || "link";
           a.classList.add(buttonSize);
           a.classList.add(buttonType);
         }
@@ -897,12 +882,12 @@ export function decorateSpecialSymbol(main) {
     }
 
     // <br> tag shift+enter in word
-    /*if (
+    /* if (
       (node.tagName === "P" || node.tagName.match(/^H/)) &&
       node.textContent !== "" &&
       node.textContent.match(/\\n/gi)
     ) {
       node.innerHTML = node.textContent.replace("\\n", "<br>");
-    }*/
+    } */
   });
 }

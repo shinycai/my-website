@@ -30,8 +30,7 @@ const brightCoveVideoTemplate = ({
 function readVideoData(block) {
   return [...block.children].reduce((data, div) => {
     if (div.children.length === 2) {
-      data[div.children[0].innerText.trim().toLowerCase()] =
-        div.children[1].innerText.trim();
+      data[div.children[0].innerText.trim().toLowerCase()] = div.children[1].innerText.trim();
     }
     return data;
   }, {});
@@ -64,8 +63,8 @@ export default async function decorate(block) {
     block.innerHTML = brightCoveVideoTemplate(videoData);
     await loadPlayer(block);
   } else {
-    console.error(
+    /* console.error(
       "Missing Brightcove video data, video_id, player_id and account_id ``are required!"
-    );
+    ); */
   }
 }
