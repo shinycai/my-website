@@ -1,22 +1,12 @@
-.cards [tag="h\d"] {
-  text-align: left;
+.cards {
+  /* Band */
+  /* List */
+  /* CTA List */
 }
 .cards > ul {
   list-style: none;
   margin: 0;
   padding: 0;
-}
-
-.cards .cards-card-body {
-  margin: 16px;
-}
-
-.cards .cards-card-image {
-  line-height: 0;
-}
-
-.cards .cards-card-body > *:first-child {
-  margin-top: 0;
 }
 .cards > ul > li {
   background-color: white;
@@ -26,15 +16,15 @@
   width: 100%;
   object-fit: cover;
 }
-.cards .button {
-  width: 100%;
+.cards .cards-card-body {
+  margin: 16px;
 }
-
-/* Card attribute */
-.cards-container[data-shadow="true"] .cards > ul > li {
-  box-shadow: var(--card-box-shadow);
+.cards .cards-card-body > *:first-child {
+  margin-top: 0;
 }
-/* Band */
+.cards .cards-card-image {
+  line-height: 0;
+}
 .cards.band {
   display: none;
 }
@@ -78,43 +68,6 @@
   align-items: flex-end;
   white-space: nowrap;
 }
-/**/
-.cards-container[data-name="alopecia-areata"] .cards .cards-card-image img {
-  border-radius: var(--card-image-border-radius);
-}
-.cards-container[data-name="alopecia-areata"] .cards > ul > li {
-  border-radius: var(--card-border-radius);
-}
-/* Grid layout */
-.grid-layout {
-  margin-bottom: calc(var(--spacing-multiplier) * 6);
-}
-.grid-layout li {
-  height: 100%;
-}
-.grid-layout.cards {
-  margin: 2.5rem 1.5rem;
-  padding: 8rem 0rem 8rem;
-  margin: 0rem 2rem;
-}
-.cards.grid-layout > ul {
-  display: grid;
-  grid-template-columns: repeat(12, 1fr);
-  grid-gap: 1.5rem;
-  row-gap: 2rem;
-  column-gap: 1.5rem;
-  align-items: flex-start;
-}
-.grid-layout.grid-2 li {
-  grid-column: span 6 / auto;
-}
-.grid-layout.grid-3 li {
-  grid-column: span 4 / auto;
-}
-.grid-layout.grid-4 li {
-  grid-column: span 3 / auto;
-}
-/* List */
 .cards.list {
   text-align: center;
 }
@@ -122,8 +75,6 @@
   margin: auto;
   width: 34%;
 }
-
-/* CTA List */
 .cards.cta-list li {
   border-radius: 1rem;
   border: 0;
@@ -136,4 +87,51 @@
 }
 .cards.cta-list .button-container {
   padding: 40px 24px 0 24px;
+}
+
+/* Card attribute */
+.cards-container[data-shadow=true] .cards > ul > li {
+  box-shadow: var(--card-box-shadow);
+}
+
+/**/
+.cards-container[data-name=alopecia-areata] .cards .cards-card-image img {
+  border-radius: var(--card-image-border-radius);
+}
+
+.cards-container[data-name=alopecia-areata] .cards > ul > li {
+  border-radius: var(--card-border-radius);
+}
+
+/* Grid layout */
+.grid-layout {
+  margin-bottom: calc(var(--spacing-multiplier) * 6);
+}
+.grid-layout li {
+  height: 100%;
+}
+.grid-layout.cards {
+  margin: 2.5rem 1.5rem;
+  padding: 8rem 0rem 8rem;
+  margin: 0rem 2rem;
+}
+.grid-layout.cards > ul {
+  display: grid;
+  grid-template-columns: repeat(12, 1fr);
+  grid-gap: 1.5rem;
+  row-gap: 2rem;
+  column-gap: 1.5rem;
+  align-items: flex-start;
+}
+
+.grid-layout.grid-2 li {
+  grid-column: span 6/auto;
+}
+
+.grid-layout.grid-3 li {
+  grid-column: span 4/auto;
+}
+
+.grid-layout.grid-4 li {
+  grid-column: span 3/auto;
 }

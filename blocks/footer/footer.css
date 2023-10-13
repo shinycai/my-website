@@ -8,68 +8,53 @@ footer,
 footer a:any-link {
   color: white;
 }
-
 footer a:any-link {
   text-decoration: underline;
 }
-
 footer .footer {
   width: 100%;
   max-width: 1204px;
   margin: auto;
   text-align: left;
 }
-
 footer .footer p {
   margin: 0;
   font-size: 20px;
 }
-
 footer .footer ul,
 footer .footer li {
   padding: 0;
   margin: 0;
   list-style: none;
 }
-
 footer .footer li {
   padding-left: 12px;
   margin-bottom: 24px;
 }
-
-footer .footer .columns > div {
-  display: flex;
-}
-
 footer .footer .columns {
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 32px;
 }
-
 footer .footer .columns > div {
-  /* flex: 1; */
+  display: flex;
   flex-direction: column;
   align-items: flex-start;
   padding-right: 32px;
   border-right: 1px solid white;
   gap: 0;
 }
-
 footer .footer .columns > div:nth-of-type(2) {
   padding: 0 calc(var(--spacing-multiplier) * 21);
 }
-
 footer .footer .columns > div:last-of-type {
   padding-left: 1.33rem;
   padding-right: 0;
   border-right: 0;
 }
-
 footer .footer .columns > div > div {
   flex: initial;
 }
-
 footer .footer .columns h3 {
   font-size: 2rem;
   color: white;
