@@ -11,7 +11,7 @@ const ignoredFiles = [];
 const compileAndSave = async (sassFile) => {
   const dest = sassFile.replace(path.extname(sassFile), ".css");
 
-  fs.writeFile(dest, sass.compile(sassFile).css, (err) => {
+  fs.writeFileSync(dest, sass.compile(sassFile).css, (err) => {
     if (err) console.log(err);
     console.log(`Compiled ${sassFile} to ${dest}`);
   });
@@ -42,20 +42,27 @@ for (const folder of ["styles", "blocks"]) {
   }
 }
 
+var fsTimeout;
 fs.watch(
   ".",
   {
-    /* recursive: true, */
-    // Only on Windows and MacOS work
+    recursive: true, // use in windows
   },
   (eventType, fileName) => {
-    if (path.extname(fileName) === ".scss" && eventType === "change") {
-      console.log(fileName);
-      if (!ignoredFiles.includes(fileName)) {
-        compileAndSave(path.join(__dirname, fileName));
-      } else {
-        console.log(`${fileName} has been explicitly ignored for compilation`);
+    clearTimeout(fsTimeout);
+
+    fsTimeout = setTimeout(function () {
+      fsTimeout = null;
+      console.log(eventType, fileName, path);
+      if (path.extname(fileName) === ".scss" && eventType === "change") {
+        if (!ignoredFiles.includes(fileName)) {
+          compileAndSave(path.join(__dirname, fileName));
+        } else {
+          console.log(
+            `${fileName} has been explicitly ignored for compilation`
+          );
+        }
       }
-    }
+    }, 1000); // give 1 seconds for multiple events
   }
 );
