@@ -47,12 +47,12 @@
   --menu-item-top-level-item-padding-top-property: 2.75rem;
   --menu-item-top-level-item-padding-bottom-property: 2.75rem;
   /* card */
-  --card-box-shadow: 0px 5.12077px 17.9227px -3.84058px rgba(0, 0, 0, 0.12),
-    0px 11.5217px 56.3285px -2.56039px rgba(0, 0, 0, 0.14);
+  --card-box-shadow: 0px 5.12077px 17.9227px -3.84058px rgb(0 0 0 / 0.12),
+    0px 11.5217px 56.3285px -2.56039px rgb(0 0 0 / 0.14);
   --card-border-radius: 6rem 1.125rem 1.125rem 1.125rem;
   --card-image-border-radius: 6rem 1.125rem 0 0;
   /* columns */
-  --column-box-shadow: 0px 12px 20px 8px rgba(0, 0, 0, 0.16);
+  --column-box-shadow: 0px 12px 20px 8px rgb(0 0 0 / 0.16);
   --columns-border-radius: 1rem;
   /* button */
   --button-primary-background: linear-gradient(
@@ -65,7 +65,8 @@
     #ece811 0%,
     #eaebdd 85.33%
   );
-  --button-border-radius--primary: 50px;
+  /* border radius */
+  --button-border-radius-primary: 50px;
   /* space */
   --spacing-multiplier: 4px;
   /* background image */
@@ -185,7 +186,7 @@ pre {
 }
 
 strong {
-  font-family: "OverpassBold";
+  font-family: OverpassBold;
 }
 
 small {
@@ -208,6 +209,11 @@ main pre {
   white-space: pre;
 }
 
+a:-moz-any-link {
+  color: var(--link-color);
+  text-decoration: none;
+}
+
 a:any-link {
   color: var(--link-color);
   text-decoration: none;
@@ -219,8 +225,7 @@ a:hover {
 }
 
 /* buttons */
-a.button:any-link,
-button {
+a.button:-moz-any-link {
   font-family: var(--body-font-family);
   box-sizing: border-box;
   text-decoration: none;
@@ -240,8 +245,40 @@ button {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
+  -webkit-box-pack: justify;
+  -ms-flex-pack: justify;
+  justify-content: space-between;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+}
+a.button:any-link,
+button {
+  font-family: var(--body-font-family);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  text-decoration: none;
+  /* border: 2px solid transparent; */
+  padding: 5px 30px;
+  text-align: left;
+  font-style: normal;
+  font-weight: 600;
+  cursor: pointer;
+  color: var(--background-color);
+  background-color: var(--link-color);
+  margin: 16px 0;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  border-radius: 30px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+  -ms-flex-direction: row;
+      flex-direction: row;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
   justify-content: space-between;
@@ -267,7 +304,7 @@ button:disabled:hover {
 a.button.primary,
 button.primary {
   background: var(--button-primary-background);
-  border-radius: var(--button-border-radius--primary);
+  border-radius: var(--button-border-radius-primary);
 }
 
 a.button.secondary,
@@ -290,9 +327,8 @@ a.button.large .icon {
   width: 36px;
   height: 36px;
   margin-left: 4px;
-  transform: scale(1.5);
   -webkit-transform: scale(1.5);
-  -ms-transform: scale(1.5);
+          transform: scale(1.5);
 }
 
 main input {
@@ -303,7 +339,8 @@ main input {
   margin-bottom: 1rem;
   padding: 0.75rem 0.6rem;
   border-radius: 0.25rem;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   border: 1px solid var(--text-color);
   color: var(--text-color);
   background-color: var(--background-color);
@@ -381,7 +418,7 @@ main .section[data-background-position=image-right] {
 }
 
 main .section[data-background-position=image-right] .columns-text-col {
-  padding: 74px 0px 24px;
+  padding: 74px 0 24px;
 }
 main .section[data-background-position=image-right] .columns-text-col h2 {
   margin-top: 0;

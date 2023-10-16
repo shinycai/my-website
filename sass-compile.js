@@ -4,17 +4,26 @@ import path from "path";
 import { readdir } from "fs/promises";
 import { fileURLToPath } from "url";
 
+import postcss from "postcss";
+import syntax from "postcss-scss";
+import autoprefixer from "autoprefixer";
+import stripInlineComments from "postcss-strip-inline-comments";
+
+// console.log(autoprefixer().info());
+
 const __dirname = path.dirname(fileURLToPath(import.meta.url));
 
 const ignoredFiles = [];
 
 const compileAndSave = async (sassFile) => {
   const dest = sassFile.replace(path.extname(sassFile), ".css");
-
-  fs.writeFileSync(dest, sass.compile(sassFile).css, (err) => {
-    if (err) console.log(err);
-    console.log(`Compiled ${sassFile} to ${dest}`);
-  });
+  const { css } = sass.compile(sassFile);
+  postcss([autoprefixer, stripInlineComments])
+    .process(css, { parser: syntax, from: dest })
+    .then((result) => {
+      fs.writeFile(dest, result.css, () => true);
+      
+    });
 };
 
 const processFiles = async (parent) => {
@@ -42,18 +51,17 @@ for (const folder of ["styles", "blocks"]) {
   }
 }
 
-var fsTimeout;
+let fsTimeout;
 fs.watch(
   ".",
   {
-    recursive: true, // use in windows
+    // recursive: true, // use in windows
   },
   (eventType, fileName) => {
     clearTimeout(fsTimeout);
 
-    fsTimeout = setTimeout(function () {
+    fsTimeout = setTimeout(() => {
       fsTimeout = null;
-      console.log(eventType, fileName, path);
       if (path.extname(fileName) === ".scss" && eventType === "change") {
         if (!ignoredFiles.includes(fileName)) {
           compileAndSave(path.join(__dirname, fileName));

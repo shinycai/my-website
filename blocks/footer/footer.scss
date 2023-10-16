@@ -9,6 +9,7 @@ footer {
   a:any-link {
     color: white;
   }
+
   a:any-link {
     text-decoration: underline;
   }
@@ -18,24 +19,29 @@ footer {
     max-width: 1204px;
     margin: auto;
     text-align: left;
+
     p {
       margin: 0;
       font-size: 20px;
     }
+
     ul,
     li {
       padding: 0;
       margin: 0;
       list-style: none;
     }
+
     li {
       padding-left: 12px;
       margin-bottom: 24px;
     }
+
     .columns {
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       padding: 0 32px;
+
       > div {
         display: flex;
         flex-direction: column;
@@ -43,24 +49,29 @@ footer {
         padding-right: 32px;
         border-right: 1px solid white;
         gap: 0;
+
         &:nth-of-type(2) {
           padding: 0 calc(var(--spacing-multiplier) * 21);
         }
+
         &:last-of-type {
           padding-left: 1.33rem;
           padding-right: 0;
           border-right: 0;
         }
+
         > div {
           flex: initial;
         }
       }
+
       h3 {
         font-size: 2rem;
         color: white;
         margin-bottom: calc(var(--spacing-multiplier) * 6);
       }
     }
+
     .icon-footer-pfizer-logo {
       display: inline-block;
       width: 88px;

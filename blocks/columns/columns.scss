@@ -2,32 +2,39 @@
   > div {
     display: flex;
     flex-direction: column;
+
     > div {
       order: 1;
     }
+
     > .columns-img-col {
       order: 0;
+
       img {
         display: block;
       }
     }
   }
+
   img {
     width: 100%;
   }
 
-  /* Band*/
+  /* Band */
   &.band {
     color: white;
     position: relative;
+
     > div {
       min-height: 26.25rem;
       height: 100%;
     }
+
     .columns-img-container {
       position: absolute;
       z-index: 1;
     }
+
     .columns-content-container {
       position: relative;
       z-index: 2;
@@ -37,24 +44,30 @@
       box-sizing: border-box;
       padding: 8px;
       grid-template-columns: 1fr 1fr;
+
       > * {
         display: flex;
         align-items: flex-end;
         justify-content: flex-end;
       }
+
       .columns-text-col {
         height: 100%;
+
         &:first-child {
           justify-content: flex-start;
           align-items: center;
         }
+
         &:last-child {
           margin-top: -4.85rem;
         }
+
         * {
           color: white;
           margin: 0;
         }
+
         p {
           font-size: 10px;
         }
@@ -67,6 +80,7 @@
     max-width: 75rem;
     padding: 0 32px;
     margin: 0 auto;
+
     .container-inner {
       margin: 0 2rem;
     }
@@ -78,6 +92,7 @@
     align-items: center;
     flex-direction: unset;
     gap: 32px;
+
     > div {
       flex: 1;
       order: unset;
