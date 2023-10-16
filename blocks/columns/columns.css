@@ -1,16 +1,25 @@
 .columns {
-  /* Band*/
+  /* Band */
   /* text image */
 }
 .columns > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
 }
 .columns > div > div {
-  order: 1;
+  -webkit-box-ordinal-group: 2;
+      -ms-flex-order: 1;
+          order: 1;
 }
 .columns > div > .columns-img-col {
-  order: 0;
+  -webkit-box-ordinal-group: 1;
+      -ms-flex-order: 0;
+          order: 0;
 }
 .columns > div > .columns-img-col img {
   display: block;
@@ -36,21 +45,32 @@
   display: grid;
   max-width: 80rem;
   margin: auto;
-  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
   padding: 8px;
   grid-template-columns: 1fr 1fr;
 }
 .columns.band .columns-content-container > * {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  align-items: flex-end;
-  justify-content: flex-end;
+  -webkit-box-align: end;
+      -ms-flex-align: end;
+          align-items: flex-end;
+  -webkit-box-pack: end;
+      -ms-flex-pack: end;
+          justify-content: flex-end;
 }
 .columns.band .columns-content-container .columns-text-col {
   height: 100%;
 }
 .columns.band .columns-content-container .columns-text-col:first-child {
-  justify-content: flex-start;
-  align-items: center;
+  -webkit-box-pack: start;
+      -ms-flex-pack: start;
+          justify-content: flex-start;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
 }
 .columns.band .columns-content-container .columns-text-col:last-child {
   margin-top: -4.85rem;
@@ -73,18 +93,28 @@
 
 @media (min-width: 1024px) {
   .columns > div {
-    align-items: center;
-    flex-direction: unset;
+    -webkit-box-align: center;
+        -ms-flex-align: center;
+            align-items: center;
+    -webkit-box-orient: unset;
+    -webkit-box-direction: unset;
+        -ms-flex-direction: unset;
+            flex-direction: unset;
     gap: 32px;
   }
   .columns > div > div {
-    flex: 1;
-    order: unset;
+    -webkit-box-flex: 1;
+        -ms-flex: 1;
+            flex: 1;
+    -webkit-box-ordinal-group: unset;
+        -ms-flex-order: unset;
+            order: unset;
   }
 }
 /* Section container */
 .columns-container[data-shadow=true] .columns > div > div {
-  box-shadow: var(--column-box-shadow);
+  -webkit-box-shadow: var(--column-box-shadow);
+          box-shadow: var(--column-box-shadow);
   border-radius: var(--columns-border-radius);
 }
 

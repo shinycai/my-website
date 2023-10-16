@@ -221,10 +221,7 @@ header {
     z-index: 5;
     width: 100%;
     top: 0;
-    -webkit-box-shadow: none;
     box-shadow: none;
-    -webkit-transition: all 0.35s ease-out;
-    -o-transition: all 0.35s ease-out;
     transition: all 0.35s ease-out;
   }
 }
@@ -268,7 +265,6 @@ header {
       .nav-sections {
         display: block;
         visibility: visible;
-        // white-space: nowrap;
         ul {
           display: flex;
           gap: 2em;

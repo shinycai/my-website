@@ -4,9 +4,16 @@ footer {
   font-size: var(--body-font-size-s);
 }
 
+footer a:-moz-any-link {
+  color: white;
+}
+
 footer,
 footer a:any-link {
   color: white;
+}
+footer a:-moz-any-link {
+  text-decoration: underline;
 }
 footer a:any-link {
   text-decoration: underline;
@@ -37,9 +44,16 @@ footer .footer .columns {
   padding: 0 32px;
 }
 footer .footer .columns > div {
+  display: -webkit-box;
+  display: -ms-flexbox;
   display: flex;
-  flex-direction: column;
-  align-items: flex-start;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: start;
+      -ms-flex-align: start;
+          align-items: flex-start;
   padding-right: 32px;
   border-right: 1px solid white;
   gap: 0;
@@ -53,7 +67,9 @@ footer .footer .columns > div:last-of-type {
   border-right: 0;
 }
 footer .footer .columns > div > div {
-  flex: initial;
+  -webkit-box-flex: initial;
+      -ms-flex: initial;
+          flex: initial;
 }
 footer .footer .columns h3 {
   font-size: 2rem;

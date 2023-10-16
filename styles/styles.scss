@@ -55,14 +55,13 @@
   --menu-item-top-level-item-padding-bottom-property: 2.75rem;
 
   /* card */
-  --card-box-shadow: 0px 5.12077px 17.9227px -3.84058px rgba(0, 0, 0, 0.12),
-    0px 11.5217px 56.3285px -2.56039px rgba(0, 0, 0, 0.14);
-
+  --card-box-shadow: 0px 5.12077px 17.9227px -3.84058px rgb(0 0 0 / 0.12),
+    0px 11.5217px 56.3285px -2.56039px rgb(0 0 0 / 0.14);
   --card-border-radius: 6rem 1.125rem 1.125rem 1.125rem;
   --card-image-border-radius: 6rem 1.125rem 0 0;
 
   /* columns */
-  --column-box-shadow: 0px 12px 20px 8px rgba(0, 0, 0, 0.16);
+  --column-box-shadow: 0px 12px 20px 8px rgb(0 0 0 / 0.16);
   --columns-border-radius: 1rem;
 
   /* button */
@@ -76,7 +75,9 @@
     #ece811 0%,
     #eaebdd 85.33%
   );
-  --button-border-radius--primary: 50px;
+
+  /* border radius */
+  --button-border-radius-primary: 50px;
 
   /* space */
   --spacing-multiplier: 4px;
@@ -142,18 +143,23 @@ h6 {
 h1 {
   font-size: var(--heading-font-size-xxl);
 }
+
 h2 {
   font-size: var(--heading-font-size-xl);
 }
+
 h3 {
   font-size: var(--heading-font-size-l);
 }
+
 h4 {
   font-size: var(--heading-font-size-m);
 }
+
 h5 {
   font-size: var(--heading-font-size-s);
 }
+
 h6 {
   font-size: var(--heading-font-size-xs);
 }
@@ -195,7 +201,7 @@ pre {
 }
 
 strong {
-  font-family: "OverpassBold";
+  font-family: OverpassBold;
 }
 
 small {
@@ -234,6 +240,7 @@ button {
   font-family: var(--body-font-family);
   box-sizing: border-box;
   text-decoration: none;
+
   /* border: 2px solid transparent; */
   padding: 5px 30px;
   text-align: left;
@@ -250,7 +257,6 @@ button {
   display: flex;
   -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-  -ms-flex-direction: row;
   flex-direction: row;
   -webkit-box-pack: justify;
   -ms-flex-pack: justify;
@@ -277,15 +283,17 @@ button:disabled:hover {
 a.button.primary,
 button.primary {
   background: var(--button-primary-background);
-  border-radius: var(--button-border-radius--primary);
+  border-radius: var(--button-border-radius-primary);
 }
 
 a.button.secondary,
 button.secondary {
   background: var(--button-secondary-background);
+
   /* border: 2px solid currentcolor; */
   color: var(--text-color);
 }
+
 a.button.large {
   font-size: 2rem;
   line-height: 40px;
@@ -300,8 +308,6 @@ a.button.large .icon {
   height: 36px;
   margin-left: 4px;
   transform: scale(1.5);
-  -webkit-transform: scale(1.5);
-  -ms-transform: scale(1.5);
 }
 
 main input {
@@ -377,31 +383,39 @@ main .section {
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
+
 main .section[data-background-style="true"] {
   background-repeat: no-repeat;
 }
+
 main .section[data-background-image="4"] {
   background-image: var(--background-style-image-4);
 }
+
 main .section[data-background-position="image-right"] {
   background-size: cover;
   background-position: center -6rem;
 }
+
 main .section[data-background-position="image-right"] {
   .columns-text-col {
-    padding: 74px 0px 24px;
+    padding: 74px 0 24px;
+
     h2 {
       margin-top: 0;
       padding-top: 24px;
     }
+
     > * {
       padding-right: 24px;
       padding-left: 0;
     }
+
     p {
       text-align: center;
     }
   }
+
   .button-container {
     padding: 32px 24px 0;
   }

@@ -35,13 +35,19 @@ As both `sass-compile.js` and `hlx up` are watching for changes, changes made to
 
 Note that using only the `hlx up` command will not trigger updates on-change for sass files.
 
+## Postcss-sass
+1. [postcss](https://github.com/postcss/postcss#syntaxes) [postcss-sass](https://github.com/postcss/postcss-scss)
+2. Plugins:
+  - [autoprefixer] (https://github.com/postcss/autoprefixer)
+  - [postcss-strip-inline-comments](https://github.com/mummybot/postcss-strip-inline-comments) enable remove `// comment or code` from compiled css files.
+
 ## Local development
 
 1. Create a new repository based on the `helix-project-boilerplate` template and add a mountpoint in the `fstab.yaml`
-1. Add the [helix-bot](https://github.com/apps/helix-bot) to the repository
-1. Install the [Helix CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/helix-cli`
-1. Start Franklin Proxy: `hlx up` (opens your browser at `http://localhost:3000`)
-1. Open the `{repo}` directory in your favorite IDE and start coding :)
+2. Add the [helix-bot](https://github.com/apps/helix-bot) to the repository
+3. Install the [Helix CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/helix-cli`
+4. Start Franklin Proxy: `hlx up` (opens your browser at `http://localhost:3000`)
+5. Open the `{repo}` directory in your favorite IDE and start coding :)
 
 
 ## Commonly Used File and Folder Structure
