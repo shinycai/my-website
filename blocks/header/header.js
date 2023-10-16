@@ -145,8 +145,13 @@ export default async function decorate(block) {
       navSections.querySelectorAll(":scope > ul > li").forEach((navSection) => {
         if (navSection.querySelector("ul")) {
           navSection.classList.add("nav-drop");
+          navSection
+            .querySelector(":scope > a")
+            .addEventListener("click", (event) => {
+              event.preventDefault();
+            });
         }
-        navSection.querySelector("a").setAttribute("href", "#");
+
         navSection.querySelector("a").setAttribute("aria-expanded", "false");
         navSection.addEventListener("click", () => {
           const expanded = navSection.getAttribute("aria-expanded") === "true";
