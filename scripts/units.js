@@ -46,3 +46,26 @@ const siteConfig = {
 
 setDocLang(siteConfig.lang);
 setSharePointFileURL(siteConfig.header, siteConfig.lang.second);
+
+/**
+ *
+ * @param {*} parent  element
+ * @param {*} link string
+ */
+export async function openLinkNewTab(parent, link) {
+  parent.querySelectorAll(link).forEach((_link) => {
+    if (_link.hasAttribute('target')) return;
+    _link.setAttribute('target', '_blank');
+  });
+}
+
+export async function setGcma() {
+  // get GCMA code from MetaData
+  const gcmaMeta = document.querySelector('meta[name=gcma-code]');
+  const gcmaCode = gcmaMeta && gcmaMeta.getAttribute('content');
+
+  if (gcmaCode) {
+    const footerGcma = document.querySelector('footer .gcma-code');
+    footerGcma.textContent = `${gcmaCode}`;
+  }
+}
