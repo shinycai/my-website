@@ -40,17 +40,16 @@ function readVideoData(block) {
  * Loads the video player
  */
 async function loadPlayer(block) {
-  const script = document.createElement("script");
-  script.src =
-    "https://players.brightcove.net/1852113022001/g2OtgoAoBs_default/index.min.js";
+  const script = document.createElement('script');
+  script.src = 'https://players.brightcove.net/1852113022001/g2OtgoAoBs_default/index.min.js';
   block.append(script);
   // wait for the script to load
   await new Promise((res) => {
-    script.addEventListener("load", res);
+    script.addEventListener('load', res);
   });
   // wait for the player to get ready
   return new Promise((res) => {
-    videojs.getPlayer("player").ready(function onPlayerReady() {
+    videojs.getPlayer('player').ready(function onPlayerReady() {
       res(this);
     });
   });
