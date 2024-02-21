@@ -46,9 +46,9 @@ Note that using only the `hlx up` command will not trigger updates on-change for
 1. Create a new repository based on the `helix-project-boilerplate` template and add a mountpoint in the `fstab.yaml`
 2. Add the [helix-bot](https://github.com/apps/helix-bot) to the repository
 3. Install the [Helix CLI](https://github.com/adobe/helix-cli): `npm install -g @adobe/helix-cli`
-4. Start Franklin Proxy: `hlx up` (opens your browser at `http://localhost:3000`)
+4. Start Franklin Proxy: `hlx up --url https://main--my-website--shinycai.hlx.page/` (opens your browser at `http://localhost:3000`) or `hlx up --port [3333] --url https://main--my-website--shinycai.hlx.page/` to custom port`
 5. Open the `{repo}` directory in your favorite IDE and start coding :)
-
+6. dev-units branch environment: `https://dev-units--my-website--shinycai.hlx.page/`
 
 ## Commonly Used File and Folder Structure
     | styles
@@ -72,3 +72,21 @@ Note that using only the `hlx up` command will not trigger updates on-change for
  - Image with links: 
    - [Codes](https://github.com/hlxsites/wgf-pga-tour/blob/86dadfc5720a3e097fd7b354c007e61fed4b722f/blocks/header/header.js#L20-L39 )
    - [Preview](https://main--wgf-pga-tour--hlxsites.hlx.page/footer?view-doc-source=true)
+
+## sitemap
+sitemaps:
+  <!-- # default: en
+  #  example:
+  #    languages:
+  #      en:
+  #        source: /en/query-index.json
+  #        destination: /sitemap-en.xml
+  #        hreflang: en
+  #      tc:
+  #        source: /tc/query-index.json
+  #        destination: /sitemap-tc.xml
+  #        hreflang: tc -->
+  example:
+     origin: https://www.alopecia.com
+     source: /query-index.json
+     destination: /sitemap.xml

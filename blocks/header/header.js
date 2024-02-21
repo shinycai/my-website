@@ -6,6 +6,11 @@ import {
   decorateLinkedPictures,
 } from '../../scripts/lib-franklin.js';
 
+import {
+  siteConfig,
+  setSharePointFileURL,
+} from '../../scripts/units.js';
+
 // media query match that indicates mobile/tablet width
 const isDesktop = window.matchMedia('(min-width: 1024px)');
 
@@ -120,8 +125,9 @@ function stickyHeader(navWrapper) {
  */
 export default async function decorate(block) {
   // fetch nav content
-  const navMeta = getMetadata('nav');
-  const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
+  // const navMeta = getMetadata('nav');
+  // const navPath = navMeta ? new URL(navMeta).pathname : '/nav';
+  const navPath = setSharePointFileURL(siteConfig.nav, siteConfig.lang.second);
   const resp = await fetch(`${navPath}.plain.html`);
 
   if (resp.ok) {

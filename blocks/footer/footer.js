@@ -1,4 +1,8 @@
 import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
+import {
+  siteConfig,
+  setSharePointFileURL,
+} from '../../scripts/units.js';
 
 /**
  * loads and decorates the footer
@@ -9,7 +13,8 @@ export default async function decorate(block) {
   block.textContent = '';
 
   // fetch footer content
-  const footerPath = cfg.footer || '/footer';
+  // const footerPath = cfg.footer || '/footer';
+  const footerPath = setSharePointFileURL(siteConfig.footer, siteConfig.lang.second);
   const resp = await fetch(`${footerPath}.plain.html`, window.location.pathname.endsWith('/footer') ? { cache: 'reload' } : {});
 
   if (resp.ok) {

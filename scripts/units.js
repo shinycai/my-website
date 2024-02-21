@@ -1,3 +1,13 @@
+export const siteConfig = {
+  lang: {
+    first: 'en',
+    second: 'tc',
+  },
+  nav: 'nav',
+  // header: 'header',
+  footer: 'footer',
+  popup: '/global/popups/external-link-popup',
+};
 /**
  *
  * @param {*} lang
@@ -30,22 +40,9 @@ export function setDocLang(langs = { first: 'en', second: '' }) {
  */
 export function setSharePointFileURL(url, secondLang) {
   const match = language(secondLang);
-  const newURL = match ? url : `/${secondLang}${url}`;
+  const newURL = match ? url : `/${secondLang}/${url}`;
   return newURL;
 }
-
-const siteConfig = {
-  lang: {
-    first: 'zh-hant',
-    second: 'en',
-  },
-  header: '/global/header',
-  footer: '/global/footer',
-  popup: '/global/popups/external-link-popup',
-};
-
-setDocLang(siteConfig.lang);
-setSharePointFileURL(siteConfig.header, siteConfig.lang.second);
 
 /**
  *
