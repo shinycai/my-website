@@ -3,6 +3,7 @@ import {
   siteConfig,
   setSharePointFileURL,
   openLinkNewTab,
+  setGcma,
 } from '../../scripts/units.js';
 
 /**
@@ -25,11 +26,17 @@ export default async function decorate(block) {
     const footer = document.createElement('div');
     footer.innerHTML = html;
 
-    [...footer.querySelectorAll(':scope .columns > div:last-child a')].forEach((link) => {
-      link.setAttribute('target', '_blank');
-    });
+    // open link in new tab
+    openLinkNewTab(footer, ':scope .columns > div:last-child a');
+
+    // set gcma code
+    const gcma = footer.querySelector(':scope .columns > div:last-child > div:nth-last-child(2) > p:last-child u');
+    gcma.classList.add('gcma-code');
 
     decorateIcons(footer);
     block.append(footer);
+
+    // override after load
+    setGcma();
   }
 }
