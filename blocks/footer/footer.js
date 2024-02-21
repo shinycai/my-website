@@ -2,6 +2,7 @@ import { readBlockConfig, decorateIcons } from '../../scripts/lib-franklin.js';
 import {
   siteConfig,
   setSharePointFileURL,
+  openLinkNewTab,
 } from '../../scripts/units.js';
 
 /**
@@ -9,7 +10,7 @@ import {
  * @param {Element} block The footer block element
  */
 export default async function decorate(block) {
-  const cfg = readBlockConfig(block);
+  // const cfg = readBlockConfig(block);
   block.textContent = '';
 
   // fetch footer content
@@ -23,6 +24,10 @@ export default async function decorate(block) {
     // decorate footer DOM
     const footer = document.createElement('div');
     footer.innerHTML = html;
+
+    [...footer.querySelectorAll(':scope .columns > div:last-child a')].forEach((link) => {
+      link.setAttribute('target', '_blank');
+    });
 
     decorateIcons(footer);
     block.append(footer);
