@@ -1,10 +1,12 @@
 footer {
-  padding: 2rem;
-  background-color: var(--primary-color);
-  font-size: var(--body-font-size-s);
+  // padding: 2rem;
+  // background-color: var(--primary-color);
+  // font-size: var(--body-font-size-s);
 }
 
 footer {
+  position: relative;
+  padding-top: 70px;
   &,
   a:any-link {
     color: white;
@@ -15,10 +17,17 @@ footer {
   }
 
   .footer {
-    width: 100%;
-    max-width: 1204px;
-    margin: auto;
-    text-align: left;
+    background-color: var(--primary-color);
+    > div {
+      
+      font-size: var(--body-font-size-s);
+      width: 100%;
+      max-width: 1204px;
+      margin: auto;
+      > div {
+        padding: 2rem;
+      }
+    }
 
     p {
       margin: 0;
@@ -38,6 +47,8 @@ footer {
     }
 
     .columns {
+      
+      text-align: left;
       display: grid;
       grid-template-columns: 1fr 1fr 1fr;
       padding: 0 32px;
@@ -78,5 +89,38 @@ footer {
       height: 36px;
       margin-top: 10px;
     }
+  }
+
+  .footer-back-top {
+    cursor: pointer;
+  }
+  
+  .footer-back-top p {
+    height: 0;
+  }
+  
+  .footer-back-top span {
+    position: absolute;
+    top: 0;
+    right: 10px;
+    z-index: 9999;
+    display: grid;
+    place-items: center;
+    width: 56px;
+    height: 56px;
+    border-radius: 50%;
+    background-color: var(--primary-color);
+    box-shadow: 2px 4px 4px 0 rgba(0,0,0,0.16);
+  }
+  
+  .footer-back-top span.fixed {
+    position: fixed;
+    bottom: 80px;
+    top: auto;
+  }
+  
+  .footer-back-top svg {
+    width: 30px;
+    height: 17px;
   }
 }

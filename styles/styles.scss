@@ -114,10 +114,12 @@ body {
   background-color: var(--background-color);
   vertical-align: baseline;
   scroll-behavior: smooth;
+  text-rendering: optimizeSpeed;
 }
 
 body.appear {
-  display: unset;
+  // display: unset; or 'inline', it will cause body clientHeight is 0
+  
 }
 
 header {
@@ -304,10 +306,13 @@ a.button.large {
 }
 
 a.button.large .icon {
-  width: 36px;
-  height: 36px;
   margin-left: 4px;
-  transform: scale(1.5);
+  transform: rotate(90deg);;
+  &,
+  svg {
+    width: 36px;
+    height: 36px;
+  }
 }
 
 main input {
@@ -345,25 +350,72 @@ main blockquote p::after {
   line-height: 0;
 }
 
-main img {
-  max-width: 100%;
-  width: auto;
-  height: auto;
+main {
+  img {
+    max-width: 100%;
+    width: auto;
+    height: auto;
+  }
+
+  .section {
+    padding: 0 16px;
+  }
+
+  /* section metadata */
+  .section.highlight {
+    background-color: var(--highlight-background-color);
+  }
+
+  .section[data-background-style="true"] {
+    background-repeat: no-repeat;
+  }
+
+  .section[data-background-image="4"] {
+    background-image: var(--background-style-image-4);
+  }
+
+  .section[data-background-position="image-right"] {
+    background-size: cover;
+    background-position: center -6rem;
+  }
+
+  .section[data-background-position="image-right"] {
+    .columns-text-col {
+      padding: 74px 0 24px;
+
+      h2 {
+        margin-top: 0;
+        padding-top: 24px;
+      }
+
+      > * {
+        padding-right: 24px;
+        padding-left: 0;
+      }
+
+      p {
+        text-align: center;
+      }
+    }
+
+    .button-container {
+      padding: 32px 24px 0;
+    }
+  }
+}
+header,
+main,
+footer {
+  .icon {
+    svg {
+      width: 24px;
+      height: 24px;
+    }
+  }
 }
 
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-}
-
-.icon svg {
-  height: 100%;
-  width: 100%;
-}
-
-main .section {
-  padding: 0 16px;
+.invisible {
+  visibility: hidden;
 }
 
 @media (min-width: 768px) {
@@ -376,47 +428,5 @@ main .section {
   main .section[data-width="full-width"] {
     max-width: 100%;
     padding: 0;
-  }
-}
-
-/* section metadata */
-main .section.highlight {
-  background-color: var(--highlight-background-color);
-}
-
-main .section[data-background-style="true"] {
-  background-repeat: no-repeat;
-}
-
-main .section[data-background-image="4"] {
-  background-image: var(--background-style-image-4);
-}
-
-main .section[data-background-position="image-right"] {
-  background-size: cover;
-  background-position: center -6rem;
-}
-
-main .section[data-background-position="image-right"] {
-  .columns-text-col {
-    padding: 74px 0 24px;
-
-    h2 {
-      margin-top: 0;
-      padding-top: 24px;
-    }
-
-    > * {
-      padding-right: 24px;
-      padding-left: 0;
-    }
-
-    p {
-      text-align: center;
-    }
-  }
-
-  .button-container {
-    padding: 32px 24px 0;
   }
 }

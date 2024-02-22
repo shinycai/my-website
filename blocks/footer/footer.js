@@ -4,6 +4,7 @@ import {
   setSharePointFileURL,
   openLinkNewTab,
   setGcma,
+  backToTop,
 } from '../../scripts/units.js';
 
 /**
@@ -41,5 +42,10 @@ export default async function decorate(block) {
     if (gcma) {
       setGcma();
     }
+
+    // back to top
+    const backToTopBtn = block.querySelector(':scope >div>div>p');
+    backToTopBtn.classList.add('footer-back-top');
+    backToTop(block);
   }
 }

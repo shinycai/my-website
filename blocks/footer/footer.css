@@ -1,13 +1,10 @@
 footer {
-  padding: 2rem;
-  background-color: var(--primary-color);
-  font-size: var(--body-font-size-s);
+  position: relative;
+  padding-top: 70px;
 }
-
 footer a:-moz-any-link {
   color: white;
 }
-
 footer,
 footer a:any-link {
   color: white;
@@ -19,10 +16,16 @@ footer a:any-link {
   text-decoration: underline;
 }
 footer .footer {
+  background-color: var(--primary-color);
+}
+footer .footer > div {
+  font-size: var(--body-font-size-s);
   width: 100%;
   max-width: 1204px;
   margin: auto;
-  text-align: left;
+}
+footer .footer > div > div {
+  padding: 2rem;
 }
 footer .footer p {
   margin: 0;
@@ -39,6 +42,7 @@ footer .footer li {
   margin-bottom: 24px;
 }
 footer .footer .columns {
+  text-align: left;
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
   padding: 0 32px;
@@ -81,4 +85,33 @@ footer .footer .icon-footer-pfizer-logo {
   width: 88px;
   height: 36px;
   margin-top: 10px;
+}
+footer .footer-back-top {
+  cursor: pointer;
+}
+footer .footer-back-top p {
+  height: 0;
+}
+footer .footer-back-top span {
+  position: absolute;
+  top: 0;
+  right: 10px;
+  z-index: 9999;
+  display: grid;
+  place-items: center;
+  width: 56px;
+  height: 56px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  -webkit-box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.16);
+          box-shadow: 2px 4px 4px 0 rgba(0, 0, 0, 0.16);
+}
+footer .footer-back-top span.fixed {
+  position: fixed;
+  bottom: 80px;
+  top: auto;
+}
+footer .footer-back-top svg {
+  width: 30px;
+  height: 17px;
 }

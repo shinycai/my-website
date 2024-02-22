@@ -66,3 +66,54 @@ export async function setGcma() {
     footerGcma.textContent = `${gcmaCode}`;
   }
 }
+
+/** back to top */
+function display(dom, visibleHeight = 350) {
+  const contentHeight = document.body.clientHeight;
+  const windowHeight = window.innerHeight;
+
+  if (contentHeight - windowHeight > visibleHeight) {
+    if (window.scrollY >= visibleHeight) {
+      if (dom.classList.contains('invisible')) dom.classList.remove('invisible');
+    } else if (!dom.classList.contains('invisible')) {
+      dom.classList.add('invisible');
+    }
+  }
+}
+
+function positionFix(dom, fixTarget) {
+  const contentHeight = document.body.clientHeight;
+  const windowHeight = window.innerHeight;
+  const targetHeight = fixTarget ? fixTarget.clientHeight : 0;
+
+  if (contentHeight - windowHeight - targetHeight + dom.clientHeight < window.scrollY) {
+    dom.classList.remove('fixed');
+  } else {
+    dom.classList.add('fixed');
+  }
+}
+
+export function backToTop(footerBlock) {
+  const toTopDom = footerBlock.querySelector(':scope .footer-back-top span');
+  const fixTarget = footerBlock;
+
+  toTopDom.classList.add('invisible');
+  toTopDom.addEventListener('click', () => {
+    window.scrollTo({
+      top: 0,
+      behavior: 'smooth',
+    });
+  });
+
+  function moveTopHandler() {
+    display(toTopDom);
+    positionFix(toTopDom, fixTarget);
+  }
+
+  let timer = null;
+  window.addEventListener('scroll', moveTopHandler);
+  window.addEventListener('resize', () => {
+    clearTimeout(timer);
+    timer = setTimeout(moveTopHandler, 200);
+  });
+}

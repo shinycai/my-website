@@ -99,10 +99,7 @@ body {
   background-color: var(--background-color);
   vertical-align: baseline;
   scroll-behavior: smooth;
-}
-
-body.appear {
-  display: unset;
+  text-rendering: optimizeSpeed;
 }
 
 header {
@@ -324,11 +321,14 @@ a.button.large {
 }
 
 a.button.large .icon {
+  margin-left: 4px;
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+a.button.large .icon,
+a.button.large .icon svg {
   width: 36px;
   height: 36px;
-  margin-left: 4px;
-  -webkit-transform: scale(1.5);
-          transform: scale(1.5);
 }
 
 main input {
@@ -367,56 +367,30 @@ main blockquote p::after {
   line-height: 0;
 }
 
+main {
+  /* section metadata */
+}
 main img {
   max-width: 100%;
   width: auto;
   height: auto;
 }
-
-.icon {
-  display: inline-block;
-  height: 24px;
-  width: 24px;
-}
-
-.icon svg {
-  height: 100%;
-  width: 100%;
-}
-
 main .section {
   padding: 0 16px;
 }
-
-@media (min-width: 768px) {
-  main .section {
-    max-width: 75rem;
-    padding: 0 32px;
-    margin: 0 auto;
-  }
-  main .section[data-width=full-width] {
-    max-width: 100%;
-    padding: 0;
-  }
-}
-/* section metadata */
 main .section.highlight {
   background-color: var(--highlight-background-color);
 }
-
 main .section[data-background-style=true] {
   background-repeat: no-repeat;
 }
-
 main .section[data-background-image="4"] {
   background-image: var(--background-style-image-4);
 }
-
 main .section[data-background-position=image-right] {
   background-size: cover;
   background-position: center -6rem;
 }
-
 main .section[data-background-position=image-right] .columns-text-col {
   padding: 74px 0 24px;
 }
@@ -433,4 +407,27 @@ main .section[data-background-position=image-right] .columns-text-col p {
 }
 main .section[data-background-position=image-right] .button-container {
   padding: 32px 24px 0;
+}
+
+header .icon svg,
+main .icon svg,
+footer .icon svg {
+  width: 24px;
+  height: 24px;
+}
+
+.invisible {
+  visibility: hidden;
+}
+
+@media (min-width: 768px) {
+  main .section {
+    max-width: 75rem;
+    padding: 0 32px;
+    margin: 0 auto;
+  }
+  main .section[data-width=full-width] {
+    max-width: 100%;
+    padding: 0;
+  }
 }

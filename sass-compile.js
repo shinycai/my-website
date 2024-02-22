@@ -22,7 +22,6 @@ const compileAndSave = async (sassFile) => {
     .process(css, { parser: syntax, from: dest })
     .then((result) => {
       fs.writeFile(dest, result.css, () => true);
-      
     });
 };
 
@@ -52,6 +51,7 @@ for (const folder of ["styles", "blocks"]) {
 }
 
 let fsTimeout;
+// only watch adding codes not deleting
 fs.watch(
   ".",
   {
