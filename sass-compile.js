@@ -1,3 +1,6 @@
+/**
+ * https://github.com/sachioross/helix-project-boilerplate-sass
+ */
 import * as sass from "sass";
 import fs from "fs";
 import path from "path";
@@ -51,11 +54,10 @@ for (const folder of ["styles", "blocks"]) {
 }
 
 let fsTimeout;
-// only watch adding codes not deleting
 fs.watch(
   ".",
   {
-    // recursive: true, // use in windows
+    recursive: true, // use in windows to achieve watching changing，otherwise only watching add
   },
   (eventType, fileName) => {
     clearTimeout(fsTimeout);
