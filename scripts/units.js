@@ -93,7 +93,7 @@ function positionFix(dom, fixTarget) {
   }
 }
 
-export function backToTop(footerBlock) {
+export async function backToTop(footerBlock) {
   const toTopDom = footerBlock.querySelector(':scope .footer-back-top span');
   const fixTarget = footerBlock;
 
@@ -115,5 +115,26 @@ export function backToTop(footerBlock) {
   window.addEventListener('resize', () => {
     clearTimeout(timer);
     timer = setTimeout(moveTopHandler, 200);
+  });
+}
+
+/** create form */
+export function renderFieldType(item, type, name, value, id) {
+  const text = item.innerHTML;
+  const fieldHtml = `<input type="${type}" class="field-type-${type}" value="${value}" id="${id}" name="${name}"><label for="${id}">${text}</label>`;
+  item.innerHTML = fieldHtml;
+}
+
+export async function createForm(block, config = { name: 'myForm' }) {
+  const form = document.createElement('form');
+  form.classList.add(config.name);
+  form.setAttribute('id', config.name);
+  form.setAttribute('novalidate', 'novalidate');
+  block.append(form);
+
+  [...block.querySelectorAll(':scope >div')].forEach((dom) => {
+    const domClone = dom.cloneNode(true);
+    form.append(domClone);
+    dom.remove();
   });
 }

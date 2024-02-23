@@ -222,12 +222,11 @@ a:hover {
 }
 
 /* buttons */
-a.button:-moz-any-link {
+.button:-moz-any-link {
   font-family: var(--body-font-family);
   box-sizing: border-box;
   text-decoration: none;
-  /* border: 2px solid transparent; */
-  padding: 5px 30px;
+  padding: 10px 30px;
   text-align: left;
   font-style: normal;
   font-weight: 600;
@@ -250,14 +249,13 @@ a.button:-moz-any-link {
   -ms-flex-align: center;
   align-items: center;
 }
-a.button:any-link,
-button {
+.button:any-link,
+.button {
   font-family: var(--body-font-family);
   -webkit-box-sizing: border-box;
           box-sizing: border-box;
   text-decoration: none;
-  /* border: 2px solid transparent; */
-  padding: 5px 30px;
+  padding: 10px 30px;
   text-align: left;
   font-style: normal;
   font-weight: 600;
@@ -284,34 +282,29 @@ button {
   align-items: center;
 }
 
-a.button:hover,
-a.button:focus,
-button:hover,
-button:focus {
+.button:hover,
+.button:focus {
   background-color: var(--link-hover-color);
   cursor: pointer;
 }
 
-button:disabled,
-button:disabled:hover {
+.button:disabled,
+.button:disabled:hover {
   background-color: var(--overlay-background-color);
   cursor: unset;
 }
 
-a.button.primary,
-button.primary {
+.button.primary {
   background: var(--button-primary-background);
   border-radius: var(--button-border-radius-primary);
 }
 
-a.button.secondary,
-button.secondary {
+.button.secondary {
   background: var(--button-secondary-background);
-  /* border: 2px solid currentcolor; */
   color: var(--text-color);
 }
 
-a.button.large {
+.button.large {
   font-size: 2rem;
   line-height: 40px;
   padding: 1.5rem 2rem 1.5rem 2.5rem;
@@ -319,35 +312,13 @@ a.button.large {
   letter-spacing: 0.25px;
   border-radius: 50px;
 }
-
-a.button.large .icon {
+.button.large .icon {
   margin-left: 4px;
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
 }
-a.button.large .icon,
-a.button.large .icon svg {
+.button.large .icon,
+.button.large .icon svg {
   width: 36px;
   height: 36px;
-}
-
-main input {
-  font-size: 1.25rem;
-  width: 100%;
-  max-width: 50rem;
-  display: block;
-  margin-bottom: 1rem;
-  padding: 0.75rem 0.6rem;
-  border-radius: 0.25rem;
-  -webkit-box-sizing: border-box;
-          box-sizing: border-box;
-  border: 1px solid var(--text-color);
-  color: var(--text-color);
-  background-color: var(--background-color);
-}
-
-main input:hover {
-  border: 1px solid var(--text-color);
 }
 
 main blockquote {

@@ -1,0 +1,73 @@
+.form .field-item {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin: 0 0 1rem;
+}
+.form .field-item label {
+  padding-left: 12px;
+}
+.form .field-item input {
+  position: relative;
+  -webkit-appearance: none;
+     -moz-appearance: none;
+          appearance: none;
+  width: 34px;
+  height: 34px;
+  margin: 0;
+}
+.form .field-item input::after {
+  position: relative;
+  content: "";
+  display: block;
+  width: 34px;
+  height: 34px;
+  background-color: white;
+  border: 2px solid var(--primary-color);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form .field-item input:checked::before {
+  position: absolute;
+  content: "";
+  display: block;
+  z-index: 2;
+  left: 50%;
+  top: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+}
+.form .field-item input:checked::after {
+  z-index: 1;
+}
+.form .field-item input[type=radio]:checked::before {
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: var(--primary-color);
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+.form .field-item input[type=checkbox]:checked::before {
+  width: 30px;
+  height: 30px;
+  background: url("../../icons/icon-checked.svg") no-repeat center center/100% 100%;
+}
+.form .field-item input:checked, .form .field-item input:checked::after {
+  position: relative;
+}
+.form .field-radio-item input::after {
+  border-radius: 50%;
+}
+.form table {
+  margin-bottom: 2rem;
+}
+.form table > tbody > tr:last-child .field-item {
+  margin-bottom: 0;
+}
+.form .button-submit {
+  max-width: 200px;
+}
