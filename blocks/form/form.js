@@ -1,6 +1,7 @@
 import {
   renderFieldType,
   createForm,
+  getFieldValue,
 } from '../../scripts/units.js';
 
 /**
@@ -14,6 +15,7 @@ export default async function decorate(block) {
     let fiedlGroupType = '';
     let fiedlGroupName = '';
 
+    // define field type of each table
     if (index === 0) {
       fiedlGroupType = 'radio';
     } else {
@@ -38,10 +40,7 @@ export default async function decorate(block) {
     table.querySelectorAll(':scope > tbody > tr > td').forEach((field, _index) => {
       const type = field.closest('table').getAttribute('field-group-type');
       const name = field.closest('table').getAttribute('field-group-name');
-      let value = _index;
-      if (name === 'disease' && _index === field.closest('table > tbody').children.length - 1) {
-        value = 'noCondition';
-      }
+      const value = _index;
       renderFieldType(field, type, name, value, `${name}-${_index}`);
       field.classList.add('field-item');
       field.classList.add(`field-${type}-item`);
@@ -56,4 +55,9 @@ export default async function decorate(block) {
   const content = form.querySelectorAll(':scope >div');
   const submitBtn = content[2].querySelector('u');
   submitBtn.classList.add('button', 'primary', 'button-submit');
+
+  submitBtn.addEventListener('click', () => {
+    const result = getFieldValue(['age', 'disease']);
+    console.log(result);
+  });
 }

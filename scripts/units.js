@@ -125,6 +125,30 @@ export function renderFieldType(item, type, name, value, id) {
   item.innerHTML = fieldHtml;
 }
 
+function getCheckedValueText(checkedOption) {
+  const value = checkedOption.getAttribute('value');
+  const text = checkedOption.nextSibling.textContent;
+  return { value, text };
+}
+
+export function getFieldValue(fieldName = [], formName = 'myForm') {
+  const totalResult = [];
+  if (fieldName.length === 0) return;
+  [...fieldName].forEach((name) => {
+    const checkedOption = document.querySelectorAll(`form#${formName} input[name="${name}"]:checked`);
+    if (checkedOption.length === 0) return;
+    const result = [];
+    [...checkedOption].forEach((option) => {
+      const checkedObj = getCheckedValueText(option);
+      result.push({
+        ...checkedObj,
+      });
+    });
+    totalResult.push({ fieldName: name, result });
+  });
+  return totalResult;
+}
+
 export async function createForm(block, config = { name: 'myForm' }) {
   const form = document.createElement('form');
   form.classList.add(config.name);
