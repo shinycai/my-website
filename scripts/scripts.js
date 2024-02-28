@@ -19,6 +19,7 @@ import {
 import {
   siteConfig,
   setDocLang,
+  setSharePointFileURL,
 } from './units.js';
 
 const LCP_BLOCKS = []; // add your LCP blocks to the list
@@ -65,6 +66,28 @@ function autolinkModals(element) {
       openModal(origin.href);
     }
   });
+}
+
+async function handle404() {
+  if (window.errorCode === '404') {
+    const notFoundPath = setSharePointFileURL(siteConfig.notFound, siteConfig.lang.second);
+    const resp = await fetch(`${notFoundPath}.plain.html`);
+    if (resp.status === 200) {
+      const html = await resp.text();
+      const main = document.querySelector('main');
+      main.innerHTML = html;
+      main.classList.remove('error');
+      // const keyword = document.querySelector('meta[name=keywords]');
+      // const description = document.querySelector('meta[name=description]');
+      // const getCode = document.querySelector('meta[name=gcma-code]');
+      // const keywordVal = document.querySelector('.seo-info ul > li:nth-child(1)').innerText;
+      // const descriptionVal = document.querySelector('.seo-info ul > li:nth-child(2)').innerText;
+      // const gcmaNum = document.querySelector('.seo-info ul > li:nth-child(3)').innerText;
+      // keyword.content = keywordVal;
+      // description.content = descriptionVal;
+      // getCode.content = gcmaNum;
+    }
+  }
 }
 
 /**
@@ -164,6 +187,7 @@ function loadDelayed() {
 }
 
 async function loadPage() {
+  await handle404();
   await loadEager(document);
   await loadLazy(document);
   loadDelayed();

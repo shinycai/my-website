@@ -4,8 +4,8 @@ export const siteConfig = {
     second: 'tc',
   },
   nav: 'nav',
-  // header: 'header',
   footer: 'footer',
+  notFound: '404',
   popup: '/global/popups/external-link-popup',
 };
 /**
