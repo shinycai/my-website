@@ -1,4 +1,7 @@
+import { Env } from '../env.js';
 import {
+  getAllMetadata,
+  getMetadata,
   sampleRUM,
   buildBlock,
   loadHeader,
@@ -174,6 +177,15 @@ async function loadLazy(doc) {
   sampleRUM('lazy');
   sampleRUM.observe(main.querySelectorAll('div[data-block-name]'));
   sampleRUM.observe(main.querySelectorAll('picture > img'));
+
+  // Load experience decisioning overlay logic
+  if ((getMetadata('experiment') || Object.keys(getAllMetadata('campaign')).length || Object.keys(getAllMetadata('audience')).length) && Env.isNonProd()) {
+    // eslint-disable-next-line import/no-relative-packages
+    const { loadLazy: runLazy } = await import(`${window.hlx.libraryBasePath}/plugins/experience-decisioning/src/index.js`);
+    await runLazy.call(this.pluginContext, { audiences: this.audiences, basePath: window.hlx.libraryBasePath });
+  }
+
+  import('./overlay.js').then((m) => m.default(document));
 }
 
 /**

@@ -1,0 +1,395 @@
+/* .core-overlay */
+:root {
+  --lib-core--color-primary: #3d46ea;
+  --lib-core--color-on-primary: #ffffff;
+  --lib-core--color-primary-container: #e0e0ff;
+  --lib-core--color-on-primary-container: #00006e;
+  --lib-core--color-secondary: #0060a8;
+  --lib-core--color-on-secondary: #ffffff;
+  --lib-core--color-secondary-container: #d3e4ff;
+  --lib-core--color-on-secondary-container: #001c38;
+  --lib-core--color-background: #fffbff;
+  --lib-core--color-on-background: #1b1b1f;
+  --lib-core--color-surface: #fffbff;
+  --lib-core--color-surface-variant: #e4e1ec;
+  --lib-core--color-on-surface: #1b1b1f;
+  --lib-core--color-on-surface-variant: #46464f;
+  --lib-core--color-system-surface-surface-1: #f2effc;
+  --lib-core--color-system-surface-surface-2: #edeafb;
+  --lib-core--color-system-surface-surface-3: #e7e4fb;
+  --lib-core--color-system-surface-surface-5: #e1dffa;
+  --lib-core--color-outline: #777680;
+  --lib-core--color-outline-variant: #c7c5d0;
+  --lib-core--color-utility-error-error: #ba1a1a;
+  --lib-core--color-utility-warning-warning: #77591a;
+  --lib-core--color-utility-success-success: #2e6b3d;
+  --lib-core--color-system-white: #ffffff;
+  --lib-core--color-system-black: #000000
+}
+
+:root {
+  --lib-core--spacing-1x: 4px;
+  --lib-core--spacing-2x: 8px;
+  --lib-core--spacing-3x: 12px;
+  --lib-core--spacing-4x: 16px;
+  --lib-core--spacing-5x: 20px;
+  --lib-core--spacing-6x: 24px;
+  --lib-core--spacing-7x: 28px;
+  --lib-core--spacing-8x: 32px;
+  --lib-core--spacing-9x: 36px;
+  --lib-core--spacing-10x: 40px;
+  --lib-core--spacing-11x: 44px;
+  --lib-core--spacing-12x: 48px;
+  --lib-core--spacing-13x: 52px;
+  --lib-core--spacing-14x: 56px;
+  --lib-core--spacing-15x: 60px;
+  --lib-core--spacing-16x: 64px;
+  --lib-core--spacing-17x: 68px;
+  --lib-core--spacing-18x: 72px;
+  --lib-core--spacing-19x: 76px;
+  --lib-core--spacing-20x: 80px;
+  --lib-core--spacing-21x: 84px;
+  --lib-core--spacing-22x: 88px;
+  --lib-core--spacing-23x: 92px;
+  --lib-core--spacing-24x: 96px;
+  --lib-core--spacing-half: 2px;
+  --lib-core--spacing-smallest: 1px
+}
+
+:root {
+  --lib-core--typography-base-unit-font-size: 16px;
+  --lib-core--typography-default-font-size: 16px;
+  --lib-core--typography-default-line-height: calc(var(--lib-core--typography-default-font-size) * 1.25);
+  --lib-core--typography-default-text-decoration: none;
+  --lib-core--typography-default-text-weight: 400;
+  --lib-core--typography-callout-font-size: 29.6px;
+  --lib-core--typography-callout-line-height: calc(var(--lib-core--typography-callout-font-size) * 1);
+  --lib-core--typography-callout-text-weight: 500;
+  --lib-core--typography-heading-mid-font-size: 20px;
+  --lib-core--typography-heading-mid-line-height: calc(var(--lib-core--typography-heading-mid-font-size) * 1.2);
+  --lib-core--typography-heading-mid-text-weight: 500;
+  --lib-core--typography-smaller-font-size: 16px;
+  --lib-core--typography-smaller-line-height: calc(var(--lib-core--typography-smaller-font-size) * 1.25);
+  --lib-core--typography-smallest-font-size: 14px;
+  --lib-core--typography-smallest-line-height: calc(var(--lib-core--typography-smallest-font-size) * 1.25);
+  --lib-core--typography-heading-1-alt-font-size: 64px;
+  --lib-core--typography-heading-2-alt-font-size: 56px;
+  --lib-core--typography-heading-3-alt-font-size: 48px;
+  --lib-core--typography-heading-4-alt-font-size: 36px;
+  --lib-core--typography-heading-5-alt-font-size: 32px;
+  --lib-core--typography-heading-6-alt-font-size: 24px;
+  --lib-core--typography-heading-7-alt-font-size: 20px;
+  --lib-core--typography-heading-display-line-height: 120%;
+  --lib-core--typography-heading-display-line-height2: 125%;
+  --lib-core--typography-heading-display-text-decoration: none;
+  --lib-core--typography-heading-display-font-weight: 800;
+  --lib-core--typography-heading-headline-line-height: 120%;
+  --lib-core--typography-heading-headline-text-decoration: none;
+  --lib-core--typography-heading-headline-font-weight: 800;
+  --lib-core--typography-heading-title-line-height: 120%;
+  --lib-core--typography-heading-title-text-decoration: none;
+  --lib-core--typography-heading-title-font-weight: 700;
+  --lib-core--typography-font-body-medium: 400 16px / 1.25 var(--lib-core--font-family-primary);
+  --lib-core--typography-font-body-large: 400 20px / 1.25 var(--lib-core--font-family-primary)
+}
+
+@media(min-width: 1024px) {
+  :root {
+      --lib-core--font-size-display-large-medium-small: 64px;
+      --lib-core--font-size-title-large-medium-medium: 32px;
+      --lib-core--line-height-title-large-medium-medium: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-medium-medium-small: 24px;
+      --lib-core--line-height-title-medium-medium-small: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-medium-medium-medium: 24px;
+      --lib-core--line-height-title-medium-medium-medium: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-small-small-small: 20px;
+      --lib-core--line-height-title-small-small-small: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-headline-large-medium-medium: 48px;
+      --lib-core--line-height-headline-medium-medium-small: var(--lib-core--typography-heading-headline-line-height);
+      --lib-core--font-size-headline-medium-medium-small: 36px;
+      --lib-core--line-height-headline-medium-medium-small: var(--lib-core--typography-heading-display-line-height);
+      --lib-core--font-size-headline-large-medium-small: 48px;
+      --lib-core--line-height-headline-large-medium-small: var(--lib-core--typography-heading-display-line-height);
+      --lib-core--font-size-headline-small-small-small: 32px;
+      --lib-core--line-height-headline-small-small-small: var(--lib-core--typography-heading-display-line-height)
+  }
+}
+
+@media(min-width: 768px)and (max-width: 1023px) {
+  :root {
+      --lib-core--font-size-display-large-medium-small: 56px;
+      --lib-core--font-size-title-large-medium-medium: 24px;
+      --lib-core--line-height-title-large-medium-medium: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-medium-medium-small: 24px;
+      --lib-core--line-height-title-medium-medium-small: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-medium-medium-medium: 24px;
+      --lib-core--line-height-title-medium-medium-medium: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-small-small-small: 20px;
+      --lib-core--line-height-title-small-small-small: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-headline-large-medium-medium: 36px;
+      --lib-core--line-height-headline-large-medium-medium: var(--lib-core--typography-heading-headline-line-height);
+      --lib-core--font-size-headline-medium-medium-small: 36px;
+      --lib-core--line-height-headline-medium-medium-small: var(--lib-core--typography-heading-display-line-height);
+      --lib-core--font-size-headline-large-medium-small: 36px;
+      --lib-core--line-height-headline-large-medium-small: var(--lib-core--typography-heading-display-line-height);
+      --lib-core--font-size-headline-small-small-small: 32px;
+      --lib-core--line-height-headline-small-small-small: var(--lib-core--typography-heading-display-line-height)
+  }
+}
+
+@media(max-width: 767px) {
+  :root {
+      --lib-core--font-size-display-large-medium-small: 48px;
+      --lib-core--font-size-title-large-medium-medium: 24px;
+      --lib-core--line-height-title-large-medium-medium: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-medium-medium-small: 20px;
+      --lib-core--line-height-title-medium-medium-small: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-medium-medium-medium: 24px;
+      --lib-core--line-height-title-medium-medium-medium: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-title-small-small-small: 20px;
+      --lib-core--line-height-title-small-small-small: var(--lib-core--typography-heading-display-line-height2);
+      --lib-core--font-size-headline-large-medium-medium: 36px;
+      --lib-core--line-height-headline-large-medium-medium: var(--lib-core--typography-heading-headline-line-height);
+      --lib-core--font-size-headline-medium-medium-small: 32px;
+      --lib-core--line-height-headline-medium-medium-small: var(--lib-core--typography-heading-display-line-height);
+      --lib-core--font-size-headline-large-medium-small: 32px;
+      --lib-core--line-height-headline-large-medium-small: var(--lib-core--typography-heading-display-line-height);
+      --lib-core--font-size-headline-small-small-small: 32px;
+      --lib-core--line-height-headline-small-small-small: var(--lib-core--typography-heading-display-line-height)
+  }
+}
+
+@media(min-width: 1024px) {
+  :root {
+      --lib-core--typography-heading-headline-font-size: 48px
+  }
+}
+
+@media(min-width: 768px)and (max-width: 1023px) {
+  :root {
+      --lib-core--typography-heading-headline-font-size: 36px
+  }
+}
+
+@media(max-width: 767px) {
+  :root {
+      --lib-core--typography-heading-headline-font-size: 32px
+  }
+}
+
+@media(min-width: 1024px) {
+  :root {
+      --lib-core--typography-heading-title-font-size: 32px
+  }
+}
+
+@media(min-width: 768px)and (max-width: 1023px) {
+  :root {
+      --lib-core--typography-heading-title-font-size: 24px
+  }
+}
+
+@media(max-width: 767px) {
+  :root {
+      --lib-core--typography-heading-title-font-size: 20px
+  }
+}
+
+:root {
+  --lib-core--font-family-primary: "Pfizer Diatype", "Pfizer Diatype-fallback", sans-serif;
+  --lib-core--font-family-secondary: "Pfizer Diatype", "Pfizer Diatype-fallback", sans-serif;
+  --lib-core--font-family-primary-bold: "Pfizer Diatype Bold", "Pfizer Diatype-bold-fallback", sans-serif;
+  --lib-core--font-family-heading-diatype: "Pfizer Diatype", "Pfizer Diatype-fallback", sans-serif;
+  --lib-core--font-family-heading-tomorrow: "Pfizer Tomorrow", "Pfizer Tomorrow-fallback", sans-serif;
+  --lib-core--font-family-heading-diatype-bold: "Pfizer Diatype Bold", "Pfizer Diatype-bold-fallback", sans-serif;
+  --lib-core--font-family-fixed: monospace;
+  --lib-core--font-family-body: var(--lib-core--font-family-primary);
+  --lib-core--font-family-heading: var(--lib-core--font-family-heading-diatype-bold);
+  --lib-core--font-weight-standard: 400;
+  --lib-core--font-weight-bold: 800
+}
+
+:root {
+  --lib-core--theme-border-radius: 16px
+}
+
+
+.overlay {
+  position: fixed;
+  inset: 0;
+  border: 0;
+  padding: 0;
+  z-index: 999;
+  --max-overlay-height: var(--lib-core--overlay--max-height, var(--lib-core--spacing-24x));
+}
+
+.overlay .button-container {
+  display: flex;
+  gap: var(--lib-core--spacing-3x);
+}
+
+.overlay .button-container,
+.overlay .button {
+  margin: 0;
+  font-size: var(--lib-core--overlay--button-font-size, var(--lib-core--typography-smallest-font-size));
+}
+
+.overlay .icon svg {
+  margin: 0;
+  color: var(--lib-core--overlay--logo-color, var(--lib-core--color-primary));
+}
+
+.overlay .core-overlay-wrapper {
+  box-sizing: border-box;
+  position: fixed;
+  inset: var(--lib-core--overlay-wrapper-inset, var(--lib-core--spacing-5x));
+  max-width: 707px;
+  height: max-content;
+  max-height: calc(100vh - var(--max-overlay-height) * 2);
+  margin: auto;
+  z-index: 200;
+}
+
+@media (min-width: 768px) {
+  .overlay .core-overlay-wrapper {
+    inset: var(--lib-core--overlay-wrapper-inset, var(--lib-core--spacing-7x));
+  }
+}
+
+.overlay .core-overlay-content {
+  display: flex;
+  flex-direction: column;
+  color: var(--lib-core--overlay--content-color, var(--lib-core--color-on-surface));
+  height: max-content;
+  max-height: calc(100vh - var(--max-overlay-height) * 2);
+  background-color: var(--lib-core--overlay--content-background-color, var(--lib-core--color-surface));
+  border-radius: 16px;
+  font-size: var(--lib-core--overlay--content-font-size, var(--lib-core--typography-smaller-font-size));
+  line-height: var(--lib-core--overlay--content-line-height, var(--lib-core--spacing-5x));
+}
+
+.overlay .section {
+  padding: var(--lib-core--overlay--section-padding, var(--lib-core--spacing-6x) var(--lib-core--spacing-5x));
+}
+
+.overlay .core-overlay-header {
+  position: relative;
+  padding-bottom: var(--lib-core--spacing-2x);
+}
+
+.overlay .core-overlay-header h1,
+.overlay .core-overlay-header h2,
+.overlay .core-overlay-header h3 {
+  font-size: var(--lib-core--overlay--heading-font-size, 32px);
+  line-height: 38.4px;
+  margin: var(--lib-core--spacing-2x) 0 0;
+  color: var(--lib-core--overlay--heading-color, var(--lib-core--color-on-background));
+}
+
+.overlay .core-overlay-header u {
+  text-decoration: none;
+}
+
+.overlay .core-overlay-header > div > :first-child {
+  padding-right: calc(20px + var(--max-overlay-height));
+}
+
+.overlay .core-overlay-header span.icon {
+  justify-content: unset;
+  width: 100%;
+  height: 64px;
+  margin-bottom: var(--lib-core--spacing-8x);
+}
+
+.overlay .core-overlay-header svg {
+  width: auto;
+  max-width: 140px;
+  height: auto;
+  max-height: 64px;
+}
+
+.overlay .core-overlay-header img {
+  height: 64px;
+  margin-bottom: var(--lib-core--spacing-4x);
+}
+
+.overlay .core-overlay-close {
+  position: absolute;
+  top: 0;
+  right: 0;
+  width: calc(var(--lib-core--spacing-6x) * 2 + 18px);
+  height: 100%;
+  max-height: calc(var(--lib-core--spacing-5x) * 2 + 18px);
+  border-radius: 0 16px 0 0;
+  border: none;
+  background-color: inherit;
+}
+
+.overlay .core-overlay-content p {
+  margin-top: 0;
+  margin-bottom: var(--lib-core--spacing-2x);
+  overflow-y: hidden;
+}
+
+.overlay .core-overlay-content p:last-child {
+  margin-bottom: 0;
+}
+
+.overlay .core-overlay-close::before,
+.overlay .core-overlay-close::after {
+  content: '';
+  display: block;
+  position: absolute;
+  top: calc(var(--lib-core--spacing-8x) + 2px);
+  right: var(--lib-core--spacing-5x);
+  width: 20px;
+  height: var(--lib-core--spacing-half);
+  background-color: var(--lib-core--overlay--close-button-color, var(--lib-core--color-outline));
+  cursor: pointer;
+}
+
+.overlay .core-overlay-close::before {
+  transform: rotate(45deg);
+}
+
+.overlay .core-overlay-close::after {
+  transform: rotate(-45deg);
+}
+
+.overlay .core-overlay-body {
+  flex: 0 1 auto;
+  overflow-y: auto;
+  padding-top: 0;
+  padding-bottom: 0;
+}
+
+.overlay .core-overlay-body:last-child {
+  padding-bottom: var(--lib-core--spacing-6x);
+}
+
+.overlay .core-overlay-footer {
+  padding: var(--lib-core--spacing-5x);
+}
+
+.overlay .core-overlay-footer .button {
+  flex: unset;
+  min-width: min-content;
+}
+
+.overlay .core-overlay-header > *,
+.overlay .core-overlay-footer > * {
+  margin: 0;
+}
+
+.overlay .core-overlay-header h2,
+.overlay .core-overlay-footer h3 {
+  font-size: var(--core-overlay-heading-font-size, var(--lib-core--font-size-headline-large-medium-small));
+  line-height: var(--core-overlay-heading-line-height, var(--lib-core--line-height-headline-large-medium-small));
+}
+
+.overlay[open] .core-overlay-backdrop {
+  position: fixed;
+  inset: 0;
+  background-color: var(--lib-core--overlay--backdrop-color, rgb(0 0 0 / 50%));
+  z-index: -1;
+}
