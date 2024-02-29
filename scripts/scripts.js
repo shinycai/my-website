@@ -77,15 +77,15 @@ async function handle404() {
       const main = document.querySelector('main');
       main.innerHTML = html;
       main.classList.remove('error');
-      // const keyword = document.querySelector('meta[name=keywords]');
-      // const description = document.querySelector('meta[name=description]');
-      // const getCode = document.querySelector('meta[name=gcma-code]');
-      // const keywordVal = document.querySelector('.seo-info ul > li:nth-child(1)').innerText;
-      // const descriptionVal = document.querySelector('.seo-info ul > li:nth-child(2)').innerText;
-      // const gcmaNum = document.querySelector('.seo-info ul > li:nth-child(3)').innerText;
-      // keyword.content = keywordVal;
-      // description.content = descriptionVal;
-      // getCode.content = gcmaNum;
+      const title = document.querySelector('meta[name=title]');
+      const description = document.querySelector('meta[name=description]');
+      const gcmaCode = document.querySelector('meta[name=gcma-code]');
+      const titleVal = document.querySelector('.seo-info ul > li:first-child').innerText;
+      const descriptionVal = document.querySelector('.seo-info ul > li:nth-child(2)').innerText;
+      const gcmaNum = document.querySelector('.seo-info ul > li:nth-child(3)').innerText;
+      title.content = titleVal;
+      description.content = descriptionVal;
+      gcmaCode.content = gcmaNum;
     }
   }
 }

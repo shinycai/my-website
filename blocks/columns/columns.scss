@@ -85,6 +85,11 @@
       margin: 0 2rem;
     }
   }
+
+  /* seo info */
+  &.seo-info {
+    display: none;
+  }
 }
 
 @media (min-width: 1024px) {

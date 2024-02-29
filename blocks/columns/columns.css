@@ -1,6 +1,7 @@
 .columns {
   /* Band */
   /* text image */
+  /* seo info */
 }
 .columns > div {
   display: -webkit-box;
@@ -89,6 +90,9 @@
 }
 .columns.text-image .container-inner {
   margin: 0 2rem;
+}
+.columns.seo-info {
+  display: none;
 }
 
 @media (min-width: 1024px) {
